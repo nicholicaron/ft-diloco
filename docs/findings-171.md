@@ -63,3 +63,12 @@ worker1, `min_replica_size=1`, sync quorum, HTTPTransport.
   quorum (observed num_participants=4, commits fail). Operational rule: kill prior runs
   (or use a dedicated lighthouse / distinct replica_id namespace) before starting a new
   cluster. Ghost members age out after heartbeat_timeout (5s default). [candidate-doc]
+- **BUG (candidate-pr): `HTTPTransport.address()` hardcodes `socket.gethostname()`**
+  (checkpointing/http_transport.py), ignoring `Manager(hostname=...)`. Any topology
+  where the local hostname isn't peer-resolvable/reachable (netns, NAT, multi-homed
+  cross-DC nodes — the #171 scenario) makes P2P recovery fail with connection-refused;
+  the recovering replica loops in heal while the donor's allreduce times out
+  ("Application timeout caused pair closure" at gloo unbound_buffer.cc:78). Repro:
+  two replica groups in separate netns, kill+rejoin one. Fix: plumb an advertised
+  hostname into HTTPTransport (mirror Manager's hostname param); we run a subclass
+  override meanwhile. [candidate-pr]

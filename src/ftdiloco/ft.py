@@ -38,6 +38,19 @@ def run_diloco(
     from torchft.checkpointing.http_transport import HTTPTransport
     from torchft.local_sgd import DiLoCo
 
+    class AdvertisedHTTPTransport(HTTPTransport):
+        """HTTPTransport.address() hardcodes socket.gethostname() (upstream
+        http_transport.py), ignoring Manager(hostname=...) — peers behind a netns
+        or NAT get an unreachable recovery URL and heal loops forever. Advertise
+        FTD_ADVERTISE_HOST instead when set. Candidate upstream PR."""
+
+        def address(self) -> str:
+            host = os.environ.get("FTD_ADVERTISE_HOST")
+            if not host:
+                return super().address()
+            port = self._server.socket.getsockname()[1]
+            return f"http://{host}:{port}/checkpoint/"
+
     replica_id = int(os.environ.get("REPLICA_GROUP_ID", "0"))
     raw_model = getattr(model, "_orig_mod", model)
     outer_opt = torch.optim.SGD(
@@ -78,7 +91,9 @@ def run_diloco(
         state_dict=state_dict,
         replica_id=f"ftd_{replica_id}",
         timeout=timedelta(seconds=cfg.quorum_timeout_s),
-        checkpoint_transport=HTTPTransport(timeout=timedelta(seconds=60), num_chunks=0),
+        checkpoint_transport=AdvertisedHTTPTransport(
+            timeout=timedelta(seconds=60), num_chunks=0
+        ),
         # Inside a netns the default advertised hostname resolves to the host, not
         # this namespace — peers would dial the wrong place. FTD_ADVERTISE_HOST
         # overrides with the namespace veth IP (see scripts/netns_cluster.sh).
