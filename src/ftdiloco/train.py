@@ -41,14 +41,17 @@ def train_loop(
     logger: RunLogger,
     autocast_ctx,
     post_step_hook=None,
+    should_eval=None,
 ) -> None:
-    """Shared inner loop. In diloco mode `optimizer` is the manager-wrapped inner
-    optimizer and the DiLoCo context manager (entered by the caller) handles syncs;
-    `post_step_hook(step)` lets ft.py log sync/digest events at boundaries."""
+    """Shared inner loop. In diloco mode the DiLoCo context manager (entered by the
+    caller) hooks `optimizer.step()` to run syncs; `post_step_hook(step)` lets ft.py
+    log sync/digest events at boundaries, and `should_eval(step)` aligns evals to them."""
     block = cfg.model_cfg.block_size
     tokens_per_step = cfg.batch_size * cfg.grad_accum * block
     tokens = 0
     raw_model = getattr(model, "_orig_mod", model)
+    if should_eval is None:
+        should_eval = lambda step: step % cfg.eval_every == 0  # noqa: E731
 
     def do_eval(step: int) -> None:
         res = evaluate(raw_model, bins, cfg.batch_size, cfg.eval_batches, autocast_ctx)
@@ -81,7 +84,7 @@ def train_loop(
             dt_ms = (now - t_last) * 1000 / cfg.log_every
             t_last = now
             logger.log("step", step=step, loss=loss_acc, lr=lr, tokens=tokens, dt_ms=dt_ms)
-        if step % cfg.eval_every == 0 or step == cfg.max_steps:
+        if should_eval(step) or step == cfg.max_steps:
             do_eval(step)
             t_last = time.monotonic()
 
