@@ -51,3 +51,10 @@ worker1, `min_replica_size=1`, sync quorum, HTTPTransport.
 - Negative control (run m05-kill, accidental): a worker rejoining an EMPTY cluster (all
   peers exited) starts from scratch at step 0 — live recovery requires a living peer;
   full-cluster death needs durable checkpoints (the M3 supervisor design point).
+- Cross-namespace (≈ multi-host) standalone DiLoCo needs three non-obvious settings:
+  (1) `Manager(hostname=...)` override — default `socket.gethostname()` advertises an
+  address peers can't reach; (2) `MASTER_ADDR` must be the externally-reachable IP, NOT
+  localhost — the quorum advertises it to peers as the replica's store address for PG
+  configure (localhost times out at c10d socket.cpp:1030); (3) `GLOO_SOCKET_IFNAME`
+  pinned to the right interface. None of this is documented for non-torchrun use.
+  [candidate-doc]

@@ -25,7 +25,8 @@ for H in "${HS[@]}"; do
   pids=()
   for R in 0 1; do
     sudo ip netns exec "ftd$R" sudo -u "$(whoami)" env \
-      MASTER_ADDR=localhost MASTER_PORT=$((29600 + R)) RANK=0 WORLD_SIZE=1 \
+      MASTER_ADDR="10.77.0.1$R" MASTER_PORT=$((29600 + R)) RANK=0 WORLD_SIZE=1 \
+      GLOO_SOCKET_IFNAME=eth0 \
       REPLICA_GROUP_ID=$R NUM_REPLICA_GROUPS=2 PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True \
       TORCHFT_LIGHTHOUSE="$LIGHTHOUSE_V4" FTD_ADVERTISE_HOST="10.77.0.1$R" \
       "$PWD/.venv/bin/python" -m ftdiloco.train --config configs/train/m1_diloco.yaml \
