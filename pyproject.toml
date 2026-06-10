@@ -11,9 +11,10 @@ dependencies = [
     "matplotlib>=3.8",
 ]
 
-# torchft is NOT listed here: it is installed editable from a pinned fork checkout
-# on the training hosts (see docs/runbook.md). Pinned upstream commit recorded below.
-# torchft-pin: TBD (set at M0.5)
+# torchft is NOT listed here: training hosts use torchft-nightly==2026.6.10 (wheel),
+# with the fork github.com/nicholicaron/torchft cloned for source reference and any
+# fix branches (see docs/runbook.md).
+# torchft-pin: 4157be16e7ab2b9e2471e48355eb7d87a6c0fd07 (upstream main, 2026-06-09)
 
 [project.optional-dependencies]
 prep = ["datasets>=2.19"]
