@@ -6,3 +6,4 @@ data/
 *.bin
 .DS_Store
 experiments/**/checkpoint*.pt
+experiments/**/ckpt_r*.pt

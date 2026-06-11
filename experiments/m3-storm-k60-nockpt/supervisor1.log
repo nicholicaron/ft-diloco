@@ -1,0 +1,45 @@
+supervisor[1]: watching ftdm2r1 (restart delay 15s)
+supervisor[1]: replica down at 2026-06-11T17:29:45+00:00; restarting in 15s
+replica 1 launched for m3-storm-k60
+supervisor[1]: replica down at 2026-06-11T17:32:51+00:00; restarting in 15s
+replica 1 launched for m3-storm-k60
+supervisor[1]: replica down at 2026-06-11T17:33:09+00:00; restarting in 15s
+replica 1 launched for m3-storm-k60
+supervisor[1]: replica down at 2026-06-11T17:34:49+00:00; restarting in 15s
+replica 1 launched for m3-storm-k60
+supervisor[1]: replica down at 2026-06-11T17:39:59+00:00; restarting in 15s
+replica 1 launched for m3-storm-k60
+supervisor[1]: replica down at 2026-06-11T17:40:59+00:00; restarting in 15s
+replica 1 launched for m3-storm-k60
+supervisor[1]: replica down at 2026-06-11T17:41:53+00:00; restarting in 15s
+replica 1 launched for m3-storm-k60
+supervisor[1]: replica down at 2026-06-11T17:43:56+00:00; restarting in 15s
+replica 1 launched for m3-storm-k60
+supervisor[1]: replica down at 2026-06-11T17:45:36+00:00; restarting in 15s
+replica 1 launched for m3-storm-k60
+supervisor[1]: replica down at 2026-06-11T17:47:00+00:00; restarting in 15s
+replica 1 launched for m3-storm-k60
+supervisor[1]: replica down at 2026-06-11T17:47:33+00:00; restarting in 15s
+replica 1 launched for m3-storm-k60
+supervisor[1]: replica down at 2026-06-11T17:49:58+00:00; restarting in 15s
+replica 1 launched for m3-storm-k60
+supervisor[1]: replica down at 2026-06-11T17:53:49+00:00; restarting in 15s
+replica 1 launched for m3-storm-k60
+supervisor[1]: replica down at 2026-06-11T17:54:28+00:00; restarting in 15s
+replica 1 launched for m3-storm-k60
+supervisor[1]: replica down at 2026-06-11T17:58:11+00:00; restarting in 15s
+replica 1 launched for m3-storm-k60
+supervisor[1]: replica down at 2026-06-11T17:59:56+00:00; restarting in 15s
+replica 1 launched for m3-storm-k60
+supervisor[1]: replica down at 2026-06-11T18:00:26+00:00; restarting in 15s
+replica 1 launched for m3-storm-k60
+supervisor[1]: replica down at 2026-06-11T18:00:48+00:00; restarting in 15s
+replica 1 launched for m3-storm-k60
+supervisor[1]: replica down at 2026-06-11T18:01:36+00:00; restarting in 15s
+replica 1 launched for m3-storm-k60
+supervisor[1]: replica down at 2026-06-11T18:06:31+00:00; restarting in 15s
+replica 1 launched for m3-storm-k60
+supervisor[1]: replica down at 2026-06-11T18:07:31+00:00; restarting in 15s
+replica 1 launched for m3-storm-k60
+supervisor[1]: replica down at 2026-06-11T18:10:04+00:00; restarting in 15s
+replica 1 launched for m3-storm-k60

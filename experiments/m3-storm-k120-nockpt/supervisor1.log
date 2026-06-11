@@ -1,0 +1,29 @@
+supervisor[1]: watching ftdm2r1 (restart delay 15s)
+supervisor[1]: replica down at 2026-06-11T15:46:07+00:00; restarting in 15s
+replica 1 launched for m3-storm-k120
+supervisor[1]: replica down at 2026-06-11T15:47:13+00:00; restarting in 15s
+replica 1 launched for m3-storm-k120
+supervisor[1]: replica down at 2026-06-11T15:56:57+00:00; restarting in 15s
+replica 1 launched for m3-storm-k120
+supervisor[1]: replica down at 2026-06-11T15:57:33+00:00; restarting in 15s
+replica 1 launched for m3-storm-k120
+supervisor[1]: replica down at 2026-06-11T16:00:00+00:00; restarting in 15s
+replica 1 launched for m3-storm-k120
+supervisor[1]: replica down at 2026-06-11T16:04:13+00:00; restarting in 15s
+replica 1 launched for m3-storm-k120
+supervisor[1]: replica down at 2026-06-11T16:07:53+00:00; restarting in 15s
+replica 1 launched for m3-storm-k120
+supervisor[1]: replica down at 2026-06-11T16:14:33+00:00; restarting in 15s
+replica 1 launched for m3-storm-k120
+supervisor[1]: replica down at 2026-06-11T16:15:15+00:00; restarting in 15s
+replica 1 launched for m3-storm-k120
+supervisor[1]: replica down at 2026-06-11T16:17:03+00:00; restarting in 15s
+replica 1 launched for m3-storm-k120
+supervisor[1]: replica down at 2026-06-11T16:21:28+00:00; restarting in 15s
+replica 1 launched for m3-storm-k120
+supervisor[1]: replica down at 2026-06-11T16:22:28+00:00; restarting in 15s
+replica 1 launched for m3-storm-k120
+supervisor[1]: replica down at 2026-06-11T16:25:29+00:00; restarting in 15s
+replica 1 launched for m3-storm-k120
+supervisor[1]: replica down at 2026-06-11T16:26:44+00:00; restarting in 15s
+replica 1 launched for m3-storm-k120

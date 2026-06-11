@@ -1,0 +1,37 @@
+supervisor[0]: watching ftdm2r0 (restart delay 15s)
+supervisor[0]: replica down at 2026-06-11T17:29:12+00:00; restarting in 15s
+replica 0 launched for m3-storm-k60
+supervisor[0]: replica down at 2026-06-11T17:34:16+00:00; restarting in 15s
+replica 0 launched for m3-storm-k60
+supervisor[0]: replica down at 2026-06-11T17:35:10+00:00; restarting in 15s
+replica 0 launched for m3-storm-k60
+supervisor[0]: replica down at 2026-06-11T17:37:07+00:00; restarting in 15s
+replica 0 launched for m3-storm-k60
+supervisor[0]: replica down at 2026-06-11T17:37:55+00:00; restarting in 15s
+replica 0 launched for m3-storm-k60
+supervisor[0]: replica down at 2026-06-11T17:39:02+00:00; restarting in 15s
+replica 0 launched for m3-storm-k60
+supervisor[0]: replica down at 2026-06-11T17:40:32+00:00; restarting in 15s
+replica 0 launched for m3-storm-k60
+supervisor[0]: replica down at 2026-06-11T17:43:14+00:00; restarting in 15s
+replica 0 launched for m3-storm-k60
+supervisor[0]: replica down at 2026-06-11T17:44:39+00:00; restarting in 15s
+replica 0 launched for m3-storm-k60
+supervisor[0]: replica down at 2026-06-11T17:50:37+00:00; restarting in 15s
+replica 0 launched for m3-storm-k60
+supervisor[0]: replica down at 2026-06-11T17:52:46+00:00; restarting in 15s
+replica 0 launched for m3-storm-k60
+supervisor[0]: replica down at 2026-06-11T17:56:47+00:00; restarting in 15s
+replica 0 launched for m3-storm-k60
+supervisor[0]: replica down at 2026-06-11T18:02:18+00:00; restarting in 15s
+replica 0 launched for m3-storm-k60
+supervisor[0]: replica down at 2026-06-11T18:02:54+00:00; restarting in 15s
+replica 0 launched for m3-storm-k60
+supervisor[0]: replica down at 2026-06-11T18:03:51+00:00; restarting in 15s
+replica 0 launched for m3-storm-k60
+supervisor[0]: replica down at 2026-06-11T18:04:51+00:00; restarting in 15s
+replica 0 launched for m3-storm-k60
+supervisor[0]: replica down at 2026-06-11T18:06:52+00:00; restarting in 15s
+replica 0 launched for m3-storm-k60
+supervisor[0]: replica down at 2026-06-11T18:12:04+00:00; restarting in 15s
+replica 0 launched for m3-storm-k60

@@ -72,3 +72,19 @@ worker1, `min_replica_size=1`, sync quorum, HTTPTransport.
   two replica groups in separate netns, kill+rejoin one. Fix: plumb an advertised
   hostname into HTTPTransport (mirror Manager's hostname param); we run a subclass
   override meanwhile. [candidate-pr]
+
+## 2026-06-11 — M3 storm finding: restart churn wipes global state at small N [evidence-171]
+
+Storm (2 replica groups, min_replica_size=1, supervisor auto-restart 15s, Poisson kills
+mean 120s): global eval loss REGRESSED repeatedly (2.39 → 3.6 → 2.4 → 4.0) despite 86.7%
+committed-sync throughput. Mechanism: a kill landing while the only other member is
+alive-but-unhealed leaves a fresh-init worker as a singleton quorum; its near-random
+weights become the cluster state and the victim heals FROM it (manager logs show heals
+with donor max_step as low as 0). Live P2P recovery is necessary but NOT sufficient
+under churn at small replica counts — torchft's blog setup (30 groups) makes this
+practically unreachable, but cross-datacenter DiLoCo (#171's regime, few big members)
+hits it head-on. Mitigations implemented here: (a) commit-coupled checkpoints (each
+replica persists state every K commits; restarts init from the newest checkpoint, so a
+wiped quorum resumes from durable state); (b) experiment hygiene: kills only execute
+against clusters with a HEALTHY donor (committed in current process generation).
+[evidence-171; candidate-doc]

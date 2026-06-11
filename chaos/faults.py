@@ -96,19 +96,47 @@ def relaunch(launch_cmd: str, replica_id: int) -> dict:
     return {"cmd": launch_cmd.format(R=replica_id)}
 
 
+def _donor_healthy(run_dir: Path, rid: int, window_s: float = 240.0) -> bool:
+    """A donor counts as healthy only if its CURRENT process generation has committed
+    an outer sync recently — an alive-but-unhealed fresh process is NOT a donor
+    (fresh-init singleton quorums wipe global state; docs/findings-171.md)."""
+    import time
+    last_start, last_commit = None, None
+    f = run_dir / f"replica{rid}.jsonl"
+    if not f.exists():
+        return False
+    for line in f.open():
+        try:
+            e = json.loads(line)
+        except json.JSONDecodeError:
+            continue
+        if e.get("phase") == "start":
+            last_start = e["ts"]
+        elif e.get("event") == "outer_sync" and e.get("committed"):
+            last_commit = e["ts"]
+    return (
+        last_commit is not None
+        and last_start is not None
+        and last_commit > last_start
+        and (time.time() - last_commit) < window_s
+    )
+
+
 def kill_safe(run_dir: Path, replica_id: int, n_replicas: int = 2) -> dict:
-    """Kill only if at least one OTHER replica is alive — the storm never executes a
-    cluster-wide kill (live recovery needs a donor; documented experiment rule)."""
-    others_alive = []
+    """Kill only if at least one OTHER replica is alive AND healthy — the storm never
+    leaves the cluster without a trained donor (documented experiment rule)."""
+    healthy_donors = []
     for rid in range(n_replicas):
         if rid == replica_id:
             continue
         try:
-            others_alive.append(resolve_pid(run_dir, rid))
+            resolve_pid(run_dir, rid)
         except Exception:
-            pass
-    if not others_alive:
-        return {"skipped": "no healthy donor — refusing cluster-wide kill"}
+            continue
+        if _donor_healthy(run_dir, rid):
+            healthy_donors.append(rid)
+    if not healthy_donors:
+        return {"skipped": "no healthy donor — refusing kill"}
     try:
         pid = resolve_pid(run_dir, replica_id)
     except Exception as e:

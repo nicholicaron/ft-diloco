@@ -15,6 +15,7 @@ import os
 import socket
 import time
 from datetime import timedelta
+from pathlib import Path
 
 import numpy as np
 import torch
@@ -56,6 +57,19 @@ def run_diloco(
     outer_opt = torch.optim.SGD(
         raw_model.parameters(), lr=cfg.outer_lr, momentum=cfg.outer_momentum, nesterov=True
     )
+
+    # Commit-coupled durable checkpoints: live P2P recovery needs a HEALTHY donor; under
+    # restart churn a fresh-init singleton quorum silently wipes global state (see
+    # docs/findings-171.md). Restarts therefore init from the newest checkpoint.
+    run_dir = Path(cfg.out_dir) / cfg.run_id
+    ckpts = sorted(run_dir.glob("ckpt_r*.pt"), key=lambda f: f.stat().st_mtime)
+    if cfg.ckpt_every_syncs > 0 and ckpts:
+        sd = torch.load(ckpts[-1], map_location="cpu", weights_only=False)
+        raw_model.load_state_dict(sd["model"])
+        inner_opt.load_state_dict(sd["inner_optim"])
+        outer_opt.load_state_dict(sd["outer_optim"])
+        logger.log("lifecycle", phase="ckpt_loaded", path=ckpts[-1].name,
+                   ckpt_outer_step=sd.get("outer_step"))
 
     def state_dict() -> dict:
         return {
@@ -122,6 +136,14 @@ def run_diloco(
         )
         last_outer["step"] = outer
         last_outer["mono"] = now
+        if cfg.ckpt_every_syncs > 0 and committed and outer % cfg.ckpt_every_syncs == 0:
+            tmp = run_dir / f".ckpt_r{replica_id}.tmp"
+            torch.save(
+                {"model": raw_model.state_dict(), "inner_optim": inner_opt.state_dict(),
+                 "outer_optim": outer_opt.state_dict(), "outer_step": outer}, tmp,
+            )
+            tmp.rename(run_dir / f"ckpt_r{replica_id}.pt")
+            logger.log("lifecycle", phase="ckpt_saved", outer_step=outer)
         params = [p for p in raw_model.parameters()]
         logger.log("digest", step=step, outer_step=outer, kind="params", **tensor_digest(params))
         mom = [

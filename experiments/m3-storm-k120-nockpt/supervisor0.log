@@ -1,0 +1,15 @@
+supervisor[0]: watching ftdm2r0 (restart delay 15s)
+supervisor[0]: replica down at 2026-06-11T15:49:01+00:00; restarting in 15s
+replica 0 launched for m3-storm-k120
+supervisor[0]: replica down at 2026-06-11T15:55:47+00:00; restarting in 15s
+replica 0 launched for m3-storm-k120
+supervisor[0]: replica down at 2026-06-11T15:58:12+00:00; restarting in 15s
+replica 0 launched for m3-storm-k120
+supervisor[0]: replica down at 2026-06-11T16:03:46+00:00; restarting in 15s
+replica 0 launched for m3-storm-k120
+supervisor[0]: replica down at 2026-06-11T16:14:09+00:00; restarting in 15s
+replica 0 launched for m3-storm-k120
+supervisor[0]: replica down at 2026-06-11T16:24:50+00:00; restarting in 15s
+replica 0 launched for m3-storm-k120
+supervisor[0]: replica down at 2026-06-11T16:29:33+00:00; restarting in 15s
+replica 0 launched for m3-storm-k120
