@@ -11,7 +11,7 @@
 set -euo pipefail
 cd "$(dirname "$0")/.."
 RUN="${1:-m2-gif}"
-DUR="${2:-170}"
+DUR="${2:-240}"
 PY=/srv/fpga/ft-diloco/.venv/bin/python
 
 tmux kill-session -t demo 2>/dev/null || true

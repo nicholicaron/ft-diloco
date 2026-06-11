@@ -47,10 +47,11 @@ def replica_frame(run: Path, rid: int, name: str) -> str:
         status, color = "STARTING", YELLOW
     else:
         age = now - steps[-1]["ts"]
-        started_after_last_step = starts and starts[-1]["ts"] > steps[-1]["ts"]
+        recent_start = starts and (now - starts[-1]["ts"]) < 150
         if age < 15:
             status, color = "TRAINING", GREEN
-        elif started_after_last_step:
+        elif recent_start:
+            # post-relaunch stall = quorum join + P2P state transfer in progress
             status, color = "RECOVERING", YELLOW
         else:
             status, color = "DEAD", RED
