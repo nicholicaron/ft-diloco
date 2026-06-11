@@ -1,0 +1,60 @@
+{
+  "run": "m2-kill-rejoin",
+  "faults": [
+    {
+      "fault": "kill",
+      "target": 1,
+      "ts": 1781152161.3439815,
+      "at": 240,
+      "t_resume_s": 5.032766103744507,
+      "t_detect_s": 5.032766103744507
+    },
+    {
+      "fault": "relaunch",
+      "target": 1,
+      "ts": 1781152341.343995,
+      "at": 420,
+      "t_rejoin_s": 54.01158118247986
+    },
+    {
+      "fault": "partition",
+      "target": 1,
+      "ts": 1781152581.3439775,
+      "at": 660
+    },
+    {
+      "fault": "heal",
+      "target": 1,
+      "ts": 1781152621.3439693,
+      "at": 700
+    },
+    {
+      "fault": "stop",
+      "target": 0,
+      "ts": 1781152801.3439772,
+      "at": 880
+    },
+    {
+      "fault": "cont",
+      "target": 0,
+      "ts": 1781152841.3439817,
+      "at": 920
+    }
+  ],
+  "digest_check": {
+    "common_points": 84,
+    "matches": 84
+  },
+  "replicas": [
+    0,
+    1
+  ],
+  "total_syncs": {
+    "0": 60,
+    "1": 56
+  },
+  "committed_syncs": {
+    "0": 60,
+    "1": 56
+  }
+}

@@ -1,0 +1,8 @@
+{"event": "chaos_start", "ts": 1781151921.343897, "mono": 3814684.798740823, "schedule": [{"at": 240, "fault": "kill", "target": 1}, {"at": 420, "fault": "relaunch", "target": 1}, {"at": 660, "fault": "partition", "target": 1}, {"at": 700, "fault": "heal", "target": 1}, {"at": 880, "fault": "stop", "target": 0}, {"at": 920, "fault": "cont", "target": 0}]}
+{"event": "fault", "fault": "kill", "target": 1, "at": 240, "ts": 1781152161.3439815, "mono": 3814924.798826438, "result": {"pid": 209682}, "ok": true}
+{"event": "fault", "fault": "relaunch", "target": 1, "at": 420, "ts": 1781152341.343995, "mono": 3815104.798840816, "result": {"cmd": "bash scripts/launch_m2_replica.sh m2-kill-rejoin 1"}, "ok": true}
+{"event": "fault", "fault": "partition", "target": 1, "at": 660, "ts": 1781152581.3439775, "mono": 3815344.798822658, "result": {"iface": "vftd1"}, "ok": true}
+{"event": "fault", "fault": "heal", "target": 1, "at": 700, "ts": 1781152621.3439693, "mono": 3815384.798813901, "result": {"iface": "vftd1"}, "ok": true}
+{"event": "fault", "fault": "stop", "target": 0, "at": 880, "ts": 1781152801.3439772, "mono": 3815564.798821831, "result": {"pid": 209639}, "ok": true}
+{"event": "fault", "fault": "cont", "target": 0, "at": 920, "ts": 1781152841.3439817, "mono": 3815604.798826536, "result": {"pid": 209639}, "ok": true}
+{"event": "chaos_end", "ts": 1781152841.345347, "mono": 3815604.800191156}
