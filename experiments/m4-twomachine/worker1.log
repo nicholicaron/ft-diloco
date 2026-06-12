@@ -98,3 +98,6 @@ torch.distributed.DistNetworkError: The client socket has timed out after 300000
 2026-06-12T20:24:14.485 [INFO] [torchft::manager] - [Replica ftd_1] Finished quorum for group_rank 0
 2026-06-12T20:24:14.590 [INFO] [torchft::manager] - [Replica ftd_1] should_commit request from 0 should_commit=true
 2026-06-12T20:24:14.590 [INFO] [torchft::manager] - [Replica ftd_1] should_commit completed should_commit=true
+2026-06-12T20:27:37.716 [INFO] [torchft::manager] - Creating LighthouseClient: establishing connection to http://192.168.1.104:29510
+2026-06-12T20:27:37.716 [INFO] [torchft::manager] - [Replica ftd_1] Manager listening on http://192.168.1.104:36511
+2026-06-12T20:27:37.717 [INFO] [torchft::manager] - Creating ManagerClient: establishing connection to http://192.168.1.104:36511

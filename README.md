@@ -54,6 +54,26 @@ state every 5 commits; restarts init from the newest checkpoint) plus a healthy-
 invariant in the chaos harness. The no-checkpoint storm data is preserved in
 `experiments/m3-storm-k*-nockpt/`.
 
+**WAN realism (M4, home-lab leg):** netem sweep at 20 ms RTT, fp32 204.8 MB sync payload:
+
+| link | per-step sync (DDP pattern) | DiLoCo H=100 |
+|---|---|---|
+| 1 Gbps | 5.3k tok/s | **37.4k tok/s** |
+| 100 Mbps | 1.6k | **32.0k** |
+| 50 Mbps | 0.9k | **27.4k** |
+| 10 Mbps | DNF | DNF (as configured) |
+
+Even at gigabit, syncing every step is 7× slower than DiLoCo on the same link; DiLoCo
+stays flat down to 50 Mbps. At 10 Mbps the ~200 s allreduce **starves torchft's own
+control plane** (heartbeats share the link → quorum timeout → cascade) — quantized or
+streamed syncs are the documented fix direction. Plus a real two-physical-machine run
+(RTX 3060 box + CPU-only box over house ethernet): 4/4 cross-machine commits with
+**bit-identical digests on heterogeneous hardware**, and a rendezvous lesson: torchft's
+separate `quorum_timeout` (default 60 s) must exceed the first-sync skew of
+heterogeneous workers.
+
+![wan](plots/m4_wan.png)
+
 **DiLoCo trades sync frequency for quality smoothly (M1):** 2 workers, 51M params,
 TinyStories, equal total tokens vs a 3-seed single-GPU baseline (eval loss 1.6773 ± 0.0011):
 
