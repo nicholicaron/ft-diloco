@@ -1,0 +1,73 @@
+[W611 22:16:02.421810547 socket.cpp:207] [c10d] The hostname of the client socket cannot be retrieved. err=-3
+2026-06-11T22:16:02.969 [INFO] [torchft::manager] - Creating LighthouseClient: establishing connection to http://192.168.1.104:29510
+2026-06-11T22:16:02.990 [INFO] [torchft::manager] - [Replica ftd_1] Manager listening on http://10.77.0.11:34383
+2026-06-11T22:16:02.991 [INFO] [torchft::manager] - Creating ManagerClient: establishing connection to http://10.77.0.11:34383
+2026-06-11T22:16:05.891 [INFO] [torchft::manager] - [Replica ftd_1] Start quorum for group_rank 0
+2026-06-11T22:16:05.891 [INFO] [torchft::manager] - [Replica ftd_1] All workers joined - starting quorum
+2026-06-11T22:16:05.948 [INFO] [torchft::manager] - [Replica ftd_1] got lighthouse quorum LighthouseQuorumResponse { quorum: Some(Quorum { quorum_id: 200, participants: [QuorumMember { replica_id: "ftd_0:50e6018c-59ad-4fdb-99e0-a27b327c6ce8", address: "http://10.77.0.10:37179", store_address: "10.77.0.10:29600", step: 0, world_size: 1, shrink_only: false, commit_failures: 0, data: "" }, QuorumMember { replica_id: "ftd_1:95093c0b-749e-40a4-9259-8b6165b4e86e", address: "http://10.77.0.11:34383", store_address: "10.77.0.11:29601", step: 0, world_size: 1, shrink_only: false, commit_failures: 0, data: "" }], created: Some(Timestamp { seconds: 1781216165, nanos: 937179898 }) }) }
+2026-06-11T22:16:05.948 [INFO] [torchft::manager] - [Replica ftd_1] Finished quorum for group_rank 0
+2026-06-11T22:16:05.948 [INFO] [torchft::manager] - [Replica ftd_1] healing is required step=0, max_step=0, recover_src_replica_rank=0
+2026-06-11T22:16:06.315 [INFO] [torchft::manager] - Creating ManagerClient: establishing connection to http://10.77.0.10:37179
+/srv/fpga/ft-diloco/.venv/lib/python3.12/site-packages/torch/distributed/_serialization.py:63: UserWarning: The given buffer is not writable, and PyTorch does not support non-writable tensors. This means you can write to the underlying (supposedly non-writable) buffer using the tensor. You may want to copy the buffer to protect its data or make it writable before converting it to a tensor. This type of warning will be suppressed for the rest of this program. (Triggered internally at /pytorch/torch/csrc/utils/tensor_new.cpp:1576.)
+  storage = torch.frombuffer(
+[ftd_1:95093c0b-749e-40a4-9259-8b6165b4e86e/0 - step 0] got exception in recovery: both buffer length (0) and count (-1) must not be 0
+Traceback (most recent call last):
+  File "/srv/fpga/ft-diloco/.venv/lib/python3.12/site-packages/torchft/manager.py", line 791, in _async_quorum
+    self._pending_state_dict = self._checkpoint_transport.recv_checkpoint(
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/srv/fpga/ft-diloco/.venv/lib/python3.12/site-packages/torchft/checkpointing/http_transport.py", line 247, in recv_checkpoint
+    return cast(T, self._load_from_address(f"{base_url}/full", timeout))
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/srv/fpga/ft-diloco/.venv/lib/python3.12/site-packages/torchft/checkpointing/http_transport.py", line 164, in _load_from_address
+    return cast(T, _streaming_load(f, weights_only=False))
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/srv/fpga/ft-diloco/.venv/lib/python3.12/site-packages/torch/distributed/_serialization.py", line 152, in _streaming_load
+    zip_file.read_from(f)
+  File "/srv/fpga/ft-diloco/.venv/lib/python3.12/site-packages/torch/distributed/_serialization.py", line 63, in read_from
+    storage = torch.frombuffer(
+              ^^^^^^^^^^^^^^^^^
+ValueError: both buffer length (0) and count (-1) must not be 0
+2026-06-11T22:17:09.278 [INFO] [torchft::manager] - [Replica ftd_1] should_commit request from 0 should_commit=false
+2026-06-11T22:17:09.278 [INFO] [torchft::manager] - [Replica ftd_1] should_commit completed should_commit=false
+2026-06-11T22:17:09.945 [INFO] [torchft::manager] - [Replica ftd_1] Start quorum for group_rank 0
+2026-06-11T22:17:09.945 [INFO] [torchft::manager] - [Replica ftd_1] All workers joined - starting quorum
+2026-06-11T22:18:09.946 [INFO] [torchft::manager] - [Replica ftd_1] lighthouse quorum failed. error: status: Cancelled, message: "Timeout expired", details: [], metadata: MetadataMap { headers: {} }
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/srv/fpga/ft-diloco/src/ftdiloco/train.py", line 149, in <module>
+    main()
+  File "/srv/fpga/ft-diloco/src/ftdiloco/train.py", line 145, in main
+    run(cfg)
+  File "/srv/fpga/ft-diloco/src/ftdiloco/train.py", line 126, in run
+    run_diloco(cfg, model, inner_opt, bins, rng, logger, autocast_ctx, train_loop)
+  File "/srv/fpga/ft-diloco/src/ftdiloco/ft.py", line 180, in run_diloco
+    train_loop_fn(
+  File "/srv/fpga/ft-diloco/src/ftdiloco/train.py", line 77, in train_loop
+    optimizer.step()
+  File "/srv/fpga/ft-diloco/.venv/lib/python3.12/site-packages/torch/optim/optimizer.py", line 543, in wrapper
+    post_hook(self, args, kwargs)
+  File "/srv/fpga/ft-diloco/.venv/lib/python3.12/site-packages/torchft/local_sgd.py", line 764, in _step_post_hook
+    self._manager.start_quorum()
+  File "/srv/fpga/ft-diloco/.venv/lib/python3.12/site-packages/torchft/manager.py", line 606, in start_quorum
+    self.wait_quorum()
+  File "/usr/lib/python3.12/contextlib.py", line 81, in inner
+    return func(*args, **kwds)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/srv/fpga/ft-diloco/.venv/lib/python3.12/site-packages/torchft/manager.py", line 626, in wait_quorum
+    self._quorum_future.result()
+  File "/usr/lib/python3.12/concurrent/futures/_base.py", line 456, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/concurrent/futures/_base.py", line 401, in __get_result
+    raise self._exception
+  File "/usr/lib/python3.12/concurrent/futures/thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/contextlib.py", line 81, in inner
+    return func(*args, **kwds)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/srv/fpga/ft-diloco/.venv/lib/python3.12/site-packages/torchft/manager.py", line 643, in _async_quorum
+    quorum = self._client._quorum(
+             ^^^^^^^^^^^^^^^^^^^^^
+TimeoutError: status: Cancelled, message: "Timeout expired", details: [], metadata: MetadataMap { headers: {} }

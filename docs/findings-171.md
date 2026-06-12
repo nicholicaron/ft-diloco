@@ -88,3 +88,17 @@ replica persists state every K commits; restarts init from the newest checkpoint
 wiped quorum resumes from durable state); (b) experiment hygiene: kills only execute
 against clusters with a HEALTHY donor (committed in current process generation).
 [evidence-171; candidate-doc]
+
+## 2026-06-11 — M4 WAN sweep findings [evidence-171]
+
+netem sweep (veth, 20ms RTT, fp32 204.8MB payload, 51M model, 2 replica groups):
+- Per-step sync (H=1, DDP comm pattern) degrades from 5.3k tok/s at 1 Gbps (already 7x
+  slower than DiLoCo on the SAME link — the payload costs ~2s/step even at gigabit) to
+  858 tok/s at 50 Mbps, and FAILS ENTIRELY at 10 Mbps.
+- DiLoCo H=100 holds 27-37k tok/s from 1 Gbps down to 50 Mbps (sync cost amortized).
+- **At 10 Mbps both fail, and the mechanism matters: the data plane starves the control
+  plane.** The ~200s allreduce saturates the link; lighthouse heartbeats/quorum gRPC
+  share it; quorum times out mid-transfer ("lighthouse quorum failed: Timeout expired")
+  and the cluster cascades. Mitigations to explore: quantized sync (upstream
+  should_quantize=True halves/quarters payload), Streaming DiLoCo fragments, or QoS
+  prioritization of the control plane. [evidence-171; candidate-doc]

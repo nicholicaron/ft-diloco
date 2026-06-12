@@ -1,0 +1,23 @@
+[W611 21:28:40.564848905 socket.cpp:207] [c10d] The hostname of the client socket cannot be retrieved. err=-3
+2026-06-11T21:28:40.112 [INFO] [torchft::manager] - Creating LighthouseClient: establishing connection to http://192.168.1.104:29510
+2026-06-11T21:28:40.133 [INFO] [torchft::manager] - [Replica ftd_0] Manager listening on http://10.77.0.10:33919
+2026-06-11T21:28:40.133 [INFO] [torchft::manager] - Creating ManagerClient: establishing connection to http://10.77.0.10:33919
+2026-06-11T21:30:03.269 [INFO] [torchft::manager] - [Replica ftd_0] Start quorum for group_rank 0
+2026-06-11T21:30:03.269 [INFO] [torchft::manager] - [Replica ftd_0] All workers joined - starting quorum
+2026-06-11T21:30:03.319 [INFO] [torchft::manager] - [Replica ftd_0] got lighthouse quorum LighthouseQuorumResponse { quorum: Some(Quorum { quorum_id: 195, participants: [QuorumMember { replica_id: "ftd_0:2ad1cd70-9e46-441a-8a14-741ab5db240e", address: "http://10.77.0.10:33919", store_address: "10.77.0.10:29600", step: 0, world_size: 1, shrink_only: false, commit_failures: 0, data: "" }, QuorumMember { replica_id: "ftd_1:f9c553e2-a534-4eca-ba76-a93fb8eb5fd4", address: "http://10.77.0.11:46097", store_address: "10.77.0.11:29601", step: 0, world_size: 1, shrink_only: false, commit_failures: 0, data: "" }], created: Some(Timestamp { seconds: 1781213403, nanos: 308275085 }) }) }
+2026-06-11T21:30:03.319 [INFO] [torchft::manager] - [Replica ftd_0] Finished quorum for group_rank 0
+::ffff:10.77.0.11 - - [11/Jun/2026 21:30:04] "GET /checkpoint/0/full HTTP/1.1" 200 -
+2026-06-11T21:30:22.262 [INFO] [torchft::manager] - [Replica ftd_0] should_commit request from 0 should_commit=true
+2026-06-11T21:30:22.262 [INFO] [torchft::manager] - [Replica ftd_0] should_commit completed should_commit=true
+2026-06-11T21:31:44.137 [INFO] [torchft::manager] - [Replica ftd_0] Start quorum for group_rank 0
+2026-06-11T21:31:44.137 [INFO] [torchft::manager] - [Replica ftd_0] All workers joined - starting quorum
+2026-06-11T21:31:44.158 [INFO] [torchft::manager] - [Replica ftd_0] got lighthouse quorum LighthouseQuorumResponse { quorum: Some(Quorum { quorum_id: 195, participants: [QuorumMember { replica_id: "ftd_0:2ad1cd70-9e46-441a-8a14-741ab5db240e", address: "http://10.77.0.10:33919", store_address: "10.77.0.10:29600", step: 1, world_size: 1, shrink_only: false, commit_failures: 0, data: "" }, QuorumMember { replica_id: "ftd_1:f9c553e2-a534-4eca-ba76-a93fb8eb5fd4", address: "http://10.77.0.11:46097", store_address: "10.77.0.11:29601", step: 1, world_size: 1, shrink_only: false, commit_failures: 0, data: "" }], created: Some(Timestamp { seconds: 1781213504, nanos: 147650500 }) }) }
+2026-06-11T21:31:44.158 [INFO] [torchft::manager] - [Replica ftd_0] Finished quorum for group_rank 0
+2026-06-11T21:31:48.921 [INFO] [torchft::manager] - [Replica ftd_0] should_commit request from 0 should_commit=true
+2026-06-11T21:31:48.921 [INFO] [torchft::manager] - [Replica ftd_0] should_commit completed should_commit=true
+2026-06-11T21:33:12.491 [INFO] [torchft::manager] - [Replica ftd_0] Start quorum for group_rank 0
+2026-06-11T21:33:12.491 [INFO] [torchft::manager] - [Replica ftd_0] All workers joined - starting quorum
+2026-06-11T21:33:12.549 [INFO] [torchft::manager] - [Replica ftd_0] got lighthouse quorum LighthouseQuorumResponse { quorum: Some(Quorum { quorum_id: 195, participants: [QuorumMember { replica_id: "ftd_0:2ad1cd70-9e46-441a-8a14-741ab5db240e", address: "http://10.77.0.10:33919", store_address: "10.77.0.10:29600", step: 2, world_size: 1, shrink_only: false, commit_failures: 0, data: "" }, QuorumMember { replica_id: "ftd_1:f9c553e2-a534-4eca-ba76-a93fb8eb5fd4", address: "http://10.77.0.11:46097", store_address: "10.77.0.11:29601", step: 2, world_size: 1, shrink_only: false, commit_failures: 0, data: "" }], created: Some(Timestamp { seconds: 1781213592, nanos: 538294124 }) }) }
+2026-06-11T21:33:12.549 [INFO] [torchft::manager] - [Replica ftd_0] Finished quorum for group_rank 0
+2026-06-11T21:33:17.347 [INFO] [torchft::manager] - [Replica ftd_0] should_commit request from 0 should_commit=true
+2026-06-11T21:33:17.347 [INFO] [torchft::manager] - [Replica ftd_0] should_commit completed should_commit=true

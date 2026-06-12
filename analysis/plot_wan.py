@@ -22,18 +22,29 @@ def steady_tokens_per_sec(run_dir: Path) -> float:
     total = 0.0
     for f in run_dir.glob("replica*.jsonl"):
         evs = load_jsonl(f)
-        syncs = [e for e in evs if e["event"] == "outer_sync" and e["committed"]]
+        syncs = [e for e in evs if e["event"] == "outer_sync" and e["committed"]
+                 and e.get("num_participants", 0) >= 2]
         steps = [e for e in evs if e["event"] == "step"]
-        if not syncs or len(steps) < 3:
+        if not syncs:
             continue
         t_start = syncs[0]["ts"]
         sel = [e for e in steps if e["ts"] >= t_start]
-        if len(sel) < 2:
-            sel = steps
-        d_tok = sel[-1]["tokens"] - sel[0]["tokens"]
-        d_t = sel[-1]["ts"] - sel[0]["ts"]
-        if d_t > 0:
-            total += d_tok / d_t
+        if len(sel) >= 2:
+            d_tok = sel[-1]["tokens"] - sel[0]["tokens"]
+            d_t = sel[-1]["ts"] - sel[0]["ts"]
+            if d_t > 0:
+                total += d_tok / d_t
+            continue
+        # slow-tier fallback (runs shorter than log_every steps): time the syncs
+        # themselves — d_inner_steps x tokens/step over the sync timestamps.
+        if len(syncs) >= 2:
+            start = next(e for e in evs if e.get("phase") == "start")
+            c = start["config"]
+            tok_per_step = c["batch_size"] * c["grad_accum"] * c["model_cfg"]["block_size"]
+            d_steps = syncs[-1]["step"] - syncs[0]["step"]
+            d_t = syncs[-1]["ts"] - syncs[0]["ts"]
+            if d_t > 0 and d_steps > 0:
+                total += d_steps * tok_per_step / d_t
     return total
 
 
@@ -63,6 +74,10 @@ def main() -> None:
         ys = [t / 1000 for _, t in pts]
         color, label = styles.get(h, ("gray", f"H={h}"))
         ax.plot(xs, ys, "o-", color=color, label=label)
+        for x, y in zip(xs, ys):
+            if y == 0:
+                ax.annotate("DNF\n(sync never\ncompletes)", (x, 0.5), color=color,
+                            fontsize=8, ha="center")
     ax.set_xscale("log")
     ax.set_xlabel("link bandwidth (Mbps), 20 ms RTT")
     ax.set_ylabel("aggregate throughput (k tokens/s)")

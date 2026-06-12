@@ -1,0 +1,322 @@
+[W611 22:16:02.425337798 socket.cpp:207] [c10d] The hostname of the client socket cannot be retrieved. err=-3
+2026-06-11T22:16:02.973 [INFO] [torchft::manager] - Creating LighthouseClient: establishing connection to http://192.168.1.104:29510
+2026-06-11T22:16:02.993 [INFO] [torchft::manager] - [Replica ftd_0] Manager listening on http://10.77.0.10:37179
+2026-06-11T22:16:02.994 [INFO] [torchft::manager] - Creating ManagerClient: establishing connection to http://10.77.0.10:37179
+2026-06-11T22:16:05.926 [INFO] [torchft::manager] - [Replica ftd_0] Start quorum for group_rank 0
+2026-06-11T22:16:05.926 [INFO] [torchft::manager] - [Replica ftd_0] All workers joined - starting quorum
+2026-06-11T22:16:05.948 [INFO] [torchft::manager] - [Replica ftd_0] got lighthouse quorum LighthouseQuorumResponse { quorum: Some(Quorum { quorum_id: 200, participants: [QuorumMember { replica_id: "ftd_0:50e6018c-59ad-4fdb-99e0-a27b327c6ce8", address: "http://10.77.0.10:37179", store_address: "10.77.0.10:29600", step: 0, world_size: 1, shrink_only: false, commit_failures: 0, data: "" }, QuorumMember { replica_id: "ftd_1:95093c0b-749e-40a4-9259-8b6165b4e86e", address: "http://10.77.0.11:34383", store_address: "10.77.0.11:29601", step: 0, world_size: 1, shrink_only: false, commit_failures: 0, data: "" }], created: Some(Timestamp { seconds: 1781216165, nanos: 937179898 }) }) }
+2026-06-11T22:16:05.948 [INFO] [torchft::manager] - [Replica ftd_0] Finished quorum for group_rank 0
+::ffff:10.77.0.11 - - [11/Jun/2026 22:16:06] "GET /checkpoint/0/full HTTP/1.1" 200 -
+Exception in checkpoint server when handling self.path='/checkpoint/0/full': timed out
+Traceback (most recent call last):
+  File "/srv/fpga/ft-diloco/.venv/lib/python3.12/site-packages/torchft/checkpointing/http_transport.py", line 112, in do_GET
+    _streaming_save(state_dict, self.wfile)
+  File "/srv/fpga/ft-diloco/.venv/lib/python3.12/site-packages/torch/distributed/_serialization.py", line 119, in _streaming_save
+    zip_file.write_to(f)
+  File "/srv/fpga/ft-diloco/.venv/lib/python3.12/site-packages/torch/distributed/_serialization.py", line 50, in write_to
+    data._write_file(f, False, False, 1)
+  File "/usr/lib/python3.12/socketserver.py", line 840, in write
+    self._sock.sendall(b)
+TimeoutError: timed out
+::ffff:10.77.0.11 - - [11/Jun/2026 22:17:06] code 500, message timed out
+::ffff:10.77.0.11 - - [11/Jun/2026 22:17:06] "GET /checkpoint/0/full HTTP/1.1" 500 -
+[ftd_0:50e6018c-59ad-4fdb-99e0-a27b327c6ce8/0 - step 0] got exception waiting for work [/pytorch/third_party/gloo/gloo/transport/tcp/pair.cc:547] Connection closed by peer [10.77.0.11]:46729
+Traceback (most recent call last):
+  File "/srv/fpga/ft-diloco/.venv/lib/python3.12/site-packages/torchft/manager.py", line 1322, in wait
+    self._work.wait()
+RuntimeError: [/pytorch/third_party/gloo/gloo/transport/tcp/pair.cc:547] Connection closed by peer [10.77.0.11]:46729
+[ftd_0:50e6018c-59ad-4fdb-99e0-a27b327c6ce8/0 - step 0] got exception waiting for work [/pytorch/third_party/gloo/gloo/transport/tcp/pair.cc:547] Connection closed by peer [10.77.0.11]:46729
+Traceback (most recent call last):
+  File "/srv/fpga/ft-diloco/.venv/lib/python3.12/site-packages/torchft/manager.py", line 1322, in wait
+    self._work.wait()
+RuntimeError: [/pytorch/third_party/gloo/gloo/transport/tcp/pair.cc:547] Connection closed by peer [10.77.0.11]:46729
+[ftd_0:50e6018c-59ad-4fdb-99e0-a27b327c6ce8/0 - step 0] got exception waiting for work [/pytorch/third_party/gloo/gloo/transport/tcp/pair.cc:547] Connection closed by peer [10.77.0.11]:46729
+Traceback (most recent call last):
+  File "/srv/fpga/ft-diloco/.venv/lib/python3.12/site-packages/torchft/manager.py", line 1322, in wait
+    self._work.wait()
+RuntimeError: [/pytorch/third_party/gloo/gloo/transport/tcp/pair.cc:547] Connection closed by peer [10.77.0.11]:46729
+[ftd_0:50e6018c-59ad-4fdb-99e0-a27b327c6ce8/0 - step 0] got exception waiting for work [/pytorch/third_party/gloo/gloo/transport/tcp/pair.cc:547] Connection closed by peer [10.77.0.11]:46729
+Traceback (most recent call last):
+  File "/srv/fpga/ft-diloco/.venv/lib/python3.12/site-packages/torchft/manager.py", line 1322, in wait
+    self._work.wait()
+RuntimeError: [/pytorch/third_party/gloo/gloo/transport/tcp/pair.cc:547] Connection closed by peer [10.77.0.11]:46729
+[ftd_0:50e6018c-59ad-4fdb-99e0-a27b327c6ce8/0 - step 0] got exception waiting for work [/pytorch/third_party/gloo/gloo/transport/tcp/pair.cc:547] Connection closed by peer [10.77.0.11]:46729
+Traceback (most recent call last):
+  File "/srv/fpga/ft-diloco/.venv/lib/python3.12/site-packages/torchft/manager.py", line 1322, in wait
+    self._work.wait()
+RuntimeError: [/pytorch/third_party/gloo/gloo/transport/tcp/pair.cc:547] Connection closed by peer [10.77.0.11]:46729
+[ftd_0:50e6018c-59ad-4fdb-99e0-a27b327c6ce8/0 - step 0] got exception waiting for work [/pytorch/third_party/gloo/gloo/transport/tcp/pair.cc:547] Connection closed by peer [10.77.0.11]:46729
+Traceback (most recent call last):
+  File "/srv/fpga/ft-diloco/.venv/lib/python3.12/site-packages/torchft/manager.py", line 1322, in wait
+    self._work.wait()
+RuntimeError: [/pytorch/third_party/gloo/gloo/transport/tcp/pair.cc:547] Connection closed by peer [10.77.0.11]:46729
+[ftd_0:50e6018c-59ad-4fdb-99e0-a27b327c6ce8/0 - step 0] got exception waiting for work [/pytorch/third_party/gloo/gloo/transport/tcp/pair.cc:547] Connection closed by peer [10.77.0.11]:46729
+Traceback (most recent call last):
+  File "/srv/fpga/ft-diloco/.venv/lib/python3.12/site-packages/torchft/manager.py", line 1322, in wait
+    self._work.wait()
+RuntimeError: [/pytorch/third_party/gloo/gloo/transport/tcp/pair.cc:547] Connection closed by peer [10.77.0.11]:46729
+[ftd_0:50e6018c-59ad-4fdb-99e0-a27b327c6ce8/0 - step 0] got exception waiting for work [/pytorch/third_party/gloo/gloo/transport/tcp/pair.cc:547] Connection closed by peer [10.77.0.11]:46729
+Traceback (most recent call last):
+  File "/srv/fpga/ft-diloco/.venv/lib/python3.12/site-packages/torchft/manager.py", line 1322, in wait
+    self._work.wait()
+RuntimeError: [/pytorch/third_party/gloo/gloo/transport/tcp/pair.cc:547] Connection closed by peer [10.77.0.11]:46729
+[ftd_0:50e6018c-59ad-4fdb-99e0-a27b327c6ce8/0 - step 0] got exception waiting for work [/pytorch/third_party/gloo/gloo/transport/tcp/pair.cc:547] Connection closed by peer [10.77.0.11]:46729
+Traceback (most recent call last):
+  File "/srv/fpga/ft-diloco/.venv/lib/python3.12/site-packages/torchft/manager.py", line 1322, in wait
+    self._work.wait()
+RuntimeError: [/pytorch/third_party/gloo/gloo/transport/tcp/pair.cc:547] Connection closed by peer [10.77.0.11]:46729
+[ftd_0:50e6018c-59ad-4fdb-99e0-a27b327c6ce8/0 - step 0] got exception waiting for work [/pytorch/third_party/gloo/gloo/transport/tcp/pair.cc:547] Connection closed by peer [10.77.0.11]:46729
+Traceback (most recent call last):
+  File "/srv/fpga/ft-diloco/.venv/lib/python3.12/site-packages/torchft/manager.py", line 1322, in wait
+    self._work.wait()
+RuntimeError: [/pytorch/third_party/gloo/gloo/transport/tcp/pair.cc:547] Connection closed by peer [10.77.0.11]:46729
+[ftd_0:50e6018c-59ad-4fdb-99e0-a27b327c6ce8/0 - step 0] got exception waiting for work [/pytorch/third_party/gloo/gloo/transport/tcp/pair.cc:547] Connection closed by peer [10.77.0.11]:46729
+Traceback (most recent call last):
+  File "/srv/fpga/ft-diloco/.venv/lib/python3.12/site-packages/torchft/manager.py", line 1322, in wait
+    self._work.wait()
+RuntimeError: [/pytorch/third_party/gloo/gloo/transport/tcp/pair.cc:547] Connection closed by peer [10.77.0.11]:46729
+[ftd_0:50e6018c-59ad-4fdb-99e0-a27b327c6ce8/0 - step 0] got exception waiting for work [/pytorch/third_party/gloo/gloo/transport/tcp/pair.cc:547] Connection closed by peer [10.77.0.11]:46729
+Traceback (most recent call last):
+  File "/srv/fpga/ft-diloco/.venv/lib/python3.12/site-packages/torchft/manager.py", line 1322, in wait
+    self._work.wait()
+RuntimeError: [/pytorch/third_party/gloo/gloo/transport/tcp/pair.cc:547] Connection closed by peer [10.77.0.11]:46729
+[ftd_0:50e6018c-59ad-4fdb-99e0-a27b327c6ce8/0 - step 0] got exception waiting for work [/pytorch/third_party/gloo/gloo/transport/tcp/pair.cc:547] Connection closed by peer [10.77.0.11]:46729
+Traceback (most recent call last):
+  File "/srv/fpga/ft-diloco/.venv/lib/python3.12/site-packages/torchft/manager.py", line 1322, in wait
+    self._work.wait()
+RuntimeError: [/pytorch/third_party/gloo/gloo/transport/tcp/pair.cc:547] Connection closed by peer [10.77.0.11]:46729
+[ftd_0:50e6018c-59ad-4fdb-99e0-a27b327c6ce8/0 - step 0] got exception waiting for work [/pytorch/third_party/gloo/gloo/transport/tcp/pair.cc:547] Connection closed by peer [10.77.0.11]:46729
+Traceback (most recent call last):
+  File "/srv/fpga/ft-diloco/.venv/lib/python3.12/site-packages/torchft/manager.py", line 1322, in wait
+    self._work.wait()
+RuntimeError: [/pytorch/third_party/gloo/gloo/transport/tcp/pair.cc:547] Connection closed by peer [10.77.0.11]:46729
+[ftd_0:50e6018c-59ad-4fdb-99e0-a27b327c6ce8/0 - step 0] got exception waiting for work [/pytorch/third_party/gloo/gloo/transport/tcp/pair.cc:547] Connection closed by peer [10.77.0.11]:46729
+Traceback (most recent call last):
+  File "/srv/fpga/ft-diloco/.venv/lib/python3.12/site-packages/torchft/manager.py", line 1322, in wait
+    self._work.wait()
+RuntimeError: [/pytorch/third_party/gloo/gloo/transport/tcp/pair.cc:547] Connection closed by peer [10.77.0.11]:46729
+[ftd_0:50e6018c-59ad-4fdb-99e0-a27b327c6ce8/0 - step 0] got exception waiting for work [/pytorch/third_party/gloo/gloo/transport/tcp/pair.cc:547] Connection closed by peer [10.77.0.11]:46729
+Traceback (most recent call last):
+  File "/srv/fpga/ft-diloco/.venv/lib/python3.12/site-packages/torchft/manager.py", line 1322, in wait
+    self._work.wait()
+RuntimeError: [/pytorch/third_party/gloo/gloo/transport/tcp/pair.cc:547] Connection closed by peer [10.77.0.11]:46729
+[ftd_0:50e6018c-59ad-4fdb-99e0-a27b327c6ce8/0 - step 0] got exception waiting for work [/pytorch/third_party/gloo/gloo/transport/tcp/pair.cc:547] Connection closed by peer [10.77.0.11]:46729
+Traceback (most recent call last):
+  File "/srv/fpga/ft-diloco/.venv/lib/python3.12/site-packages/torchft/manager.py", line 1322, in wait
+    self._work.wait()
+RuntimeError: [/pytorch/third_party/gloo/gloo/transport/tcp/pair.cc:547] Connection closed by peer [10.77.0.11]:46729
+[ftd_0:50e6018c-59ad-4fdb-99e0-a27b327c6ce8/0 - step 0] got exception waiting for work [/pytorch/third_party/gloo/gloo/transport/tcp/pair.cc:547] Connection closed by peer [10.77.0.11]:46729
+Traceback (most recent call last):
+  File "/srv/fpga/ft-diloco/.venv/lib/python3.12/site-packages/torchft/manager.py", line 1322, in wait
+    self._work.wait()
+RuntimeError: [/pytorch/third_party/gloo/gloo/transport/tcp/pair.cc:547] Connection closed by peer [10.77.0.11]:46729
+[ftd_0:50e6018c-59ad-4fdb-99e0-a27b327c6ce8/0 - step 0] got exception waiting for work [/pytorch/third_party/gloo/gloo/transport/tcp/pair.cc:547] Connection closed by peer [10.77.0.11]:46729
+Traceback (most recent call last):
+  File "/srv/fpga/ft-diloco/.venv/lib/python3.12/site-packages/torchft/manager.py", line 1322, in wait
+    self._work.wait()
+RuntimeError: [/pytorch/third_party/gloo/gloo/transport/tcp/pair.cc:547] Connection closed by peer [10.77.0.11]:46729
+[ftd_0:50e6018c-59ad-4fdb-99e0-a27b327c6ce8/0 - step 0] got exception waiting for work [/pytorch/third_party/gloo/gloo/transport/tcp/pair.cc:547] Connection closed by peer [10.77.0.11]:46729
+Traceback (most recent call last):
+  File "/srv/fpga/ft-diloco/.venv/lib/python3.12/site-packages/torchft/manager.py", line 1322, in wait
+    self._work.wait()
+RuntimeError: [/pytorch/third_party/gloo/gloo/transport/tcp/pair.cc:547] Connection closed by peer [10.77.0.11]:46729
+[ftd_0:50e6018c-59ad-4fdb-99e0-a27b327c6ce8/0 - step 0] got exception waiting for work [/pytorch/third_party/gloo/gloo/transport/tcp/pair.cc:547] Connection closed by peer [10.77.0.11]:46729
+Traceback (most recent call last):
+  File "/srv/fpga/ft-diloco/.venv/lib/python3.12/site-packages/torchft/manager.py", line 1322, in wait
+    self._work.wait()
+RuntimeError: [/pytorch/third_party/gloo/gloo/transport/tcp/pair.cc:547] Connection closed by peer [10.77.0.11]:46729
+[ftd_0:50e6018c-59ad-4fdb-99e0-a27b327c6ce8/0 - step 0] got exception waiting for work [/pytorch/third_party/gloo/gloo/transport/tcp/pair.cc:547] Connection closed by peer [10.77.0.11]:46729
+Traceback (most recent call last):
+  File "/srv/fpga/ft-diloco/.venv/lib/python3.12/site-packages/torchft/manager.py", line 1322, in wait
+    self._work.wait()
+RuntimeError: [/pytorch/third_party/gloo/gloo/transport/tcp/pair.cc:547] Connection closed by peer [10.77.0.11]:46729
+[ftd_0:50e6018c-59ad-4fdb-99e0-a27b327c6ce8/0 - step 0] got exception waiting for work [/pytorch/third_party/gloo/gloo/transport/tcp/pair.cc:547] Connection closed by peer [10.77.0.11]:46729
+Traceback (most recent call last):
+  File "/srv/fpga/ft-diloco/.venv/lib/python3.12/site-packages/torchft/manager.py", line 1322, in wait
+    self._work.wait()
+RuntimeError: [/pytorch/third_party/gloo/gloo/transport/tcp/pair.cc:547] Connection closed by peer [10.77.0.11]:46729
+[ftd_0:50e6018c-59ad-4fdb-99e0-a27b327c6ce8/0 - step 0] got exception waiting for work [/pytorch/third_party/gloo/gloo/transport/tcp/pair.cc:547] Connection closed by peer [10.77.0.11]:46729
+Traceback (most recent call last):
+  File "/srv/fpga/ft-diloco/.venv/lib/python3.12/site-packages/torchft/manager.py", line 1322, in wait
+    self._work.wait()
+RuntimeError: [/pytorch/third_party/gloo/gloo/transport/tcp/pair.cc:547] Connection closed by peer [10.77.0.11]:46729
+[ftd_0:50e6018c-59ad-4fdb-99e0-a27b327c6ce8/0 - step 0] got exception waiting for work [/pytorch/third_party/gloo/gloo/transport/tcp/pair.cc:547] Connection closed by peer [10.77.0.11]:46729
+Traceback (most recent call last):
+  File "/srv/fpga/ft-diloco/.venv/lib/python3.12/site-packages/torchft/manager.py", line 1322, in wait
+    self._work.wait()
+RuntimeError: [/pytorch/third_party/gloo/gloo/transport/tcp/pair.cc:547] Connection closed by peer [10.77.0.11]:46729
+[ftd_0:50e6018c-59ad-4fdb-99e0-a27b327c6ce8/0 - step 0] got exception waiting for work [/pytorch/third_party/gloo/gloo/transport/tcp/pair.cc:547] Connection closed by peer [10.77.0.11]:46729
+Traceback (most recent call last):
+  File "/srv/fpga/ft-diloco/.venv/lib/python3.12/site-packages/torchft/manager.py", line 1322, in wait
+    self._work.wait()
+RuntimeError: [/pytorch/third_party/gloo/gloo/transport/tcp/pair.cc:547] Connection closed by peer [10.77.0.11]:46729
+[ftd_0:50e6018c-59ad-4fdb-99e0-a27b327c6ce8/0 - step 0] got exception waiting for work [/pytorch/third_party/gloo/gloo/transport/tcp/pair.cc:547] Connection closed by peer [10.77.0.11]:46729
+Traceback (most recent call last):
+  File "/srv/fpga/ft-diloco/.venv/lib/python3.12/site-packages/torchft/manager.py", line 1322, in wait
+    self._work.wait()
+RuntimeError: [/pytorch/third_party/gloo/gloo/transport/tcp/pair.cc:547] Connection closed by peer [10.77.0.11]:46729
+[ftd_0:50e6018c-59ad-4fdb-99e0-a27b327c6ce8/0 - step 0] got exception waiting for work [/pytorch/third_party/gloo/gloo/transport/tcp/pair.cc:547] Connection closed by peer [10.77.0.11]:46729
+Traceback (most recent call last):
+  File "/srv/fpga/ft-diloco/.venv/lib/python3.12/site-packages/torchft/manager.py", line 1322, in wait
+    self._work.wait()
+RuntimeError: [/pytorch/third_party/gloo/gloo/transport/tcp/pair.cc:547] Connection closed by peer [10.77.0.11]:46729
+[ftd_0:50e6018c-59ad-4fdb-99e0-a27b327c6ce8/0 - step 0] got exception waiting for work [/pytorch/third_party/gloo/gloo/transport/tcp/pair.cc:547] Connection closed by peer [10.77.0.11]:46729
+Traceback (most recent call last):
+  File "/srv/fpga/ft-diloco/.venv/lib/python3.12/site-packages/torchft/manager.py", line 1322, in wait
+    self._work.wait()
+RuntimeError: [/pytorch/third_party/gloo/gloo/transport/tcp/pair.cc:547] Connection closed by peer [10.77.0.11]:46729
+[ftd_0:50e6018c-59ad-4fdb-99e0-a27b327c6ce8/0 - step 0] got exception waiting for work [/pytorch/third_party/gloo/gloo/transport/tcp/pair.cc:547] Connection closed by peer [10.77.0.11]:46729
+Traceback (most recent call last):
+  File "/srv/fpga/ft-diloco/.venv/lib/python3.12/site-packages/torchft/manager.py", line 1322, in wait
+    self._work.wait()
+RuntimeError: [/pytorch/third_party/gloo/gloo/transport/tcp/pair.cc:547] Connection closed by peer [10.77.0.11]:46729
+[ftd_0:50e6018c-59ad-4fdb-99e0-a27b327c6ce8/0 - step 0] got exception waiting for work [/pytorch/third_party/gloo/gloo/transport/tcp/pair.cc:547] Connection closed by peer [10.77.0.11]:46729
+Traceback (most recent call last):
+  File "/srv/fpga/ft-diloco/.venv/lib/python3.12/site-packages/torchft/manager.py", line 1322, in wait
+    self._work.wait()
+RuntimeError: [/pytorch/third_party/gloo/gloo/transport/tcp/pair.cc:547] Connection closed by peer [10.77.0.11]:46729
+[ftd_0:50e6018c-59ad-4fdb-99e0-a27b327c6ce8/0 - step 0] got exception waiting for work [/pytorch/third_party/gloo/gloo/transport/tcp/pair.cc:547] Connection closed by peer [10.77.0.11]:46729
+Traceback (most recent call last):
+  File "/srv/fpga/ft-diloco/.venv/lib/python3.12/site-packages/torchft/manager.py", line 1322, in wait
+    self._work.wait()
+RuntimeError: [/pytorch/third_party/gloo/gloo/transport/tcp/pair.cc:547] Connection closed by peer [10.77.0.11]:46729
+[ftd_0:50e6018c-59ad-4fdb-99e0-a27b327c6ce8/0 - step 0] got exception waiting for work [/pytorch/third_party/gloo/gloo/transport/tcp/pair.cc:547] Connection closed by peer [10.77.0.11]:46729
+Traceback (most recent call last):
+  File "/srv/fpga/ft-diloco/.venv/lib/python3.12/site-packages/torchft/manager.py", line 1322, in wait
+    self._work.wait()
+RuntimeError: [/pytorch/third_party/gloo/gloo/transport/tcp/pair.cc:547] Connection closed by peer [10.77.0.11]:46729
+[ftd_0:50e6018c-59ad-4fdb-99e0-a27b327c6ce8/0 - step 0] got exception waiting for work [/pytorch/third_party/gloo/gloo/transport/tcp/pair.cc:547] Connection closed by peer [10.77.0.11]:46729
+Traceback (most recent call last):
+  File "/srv/fpga/ft-diloco/.venv/lib/python3.12/site-packages/torchft/manager.py", line 1322, in wait
+    self._work.wait()
+RuntimeError: [/pytorch/third_party/gloo/gloo/transport/tcp/pair.cc:547] Connection closed by peer [10.77.0.11]:46729
+[ftd_0:50e6018c-59ad-4fdb-99e0-a27b327c6ce8/0 - step 0] got exception waiting for work [/pytorch/third_party/gloo/gloo/transport/tcp/pair.cc:547] Connection closed by peer [10.77.0.11]:46729
+Traceback (most recent call last):
+  File "/srv/fpga/ft-diloco/.venv/lib/python3.12/site-packages/torchft/manager.py", line 1322, in wait
+    self._work.wait()
+RuntimeError: [/pytorch/third_party/gloo/gloo/transport/tcp/pair.cc:547] Connection closed by peer [10.77.0.11]:46729
+[ftd_0:50e6018c-59ad-4fdb-99e0-a27b327c6ce8/0 - step 0] got exception waiting for work [/pytorch/third_party/gloo/gloo/transport/tcp/pair.cc:547] Connection closed by peer [10.77.0.11]:46729
+Traceback (most recent call last):
+  File "/srv/fpga/ft-diloco/.venv/lib/python3.12/site-packages/torchft/manager.py", line 1322, in wait
+    self._work.wait()
+RuntimeError: [/pytorch/third_party/gloo/gloo/transport/tcp/pair.cc:547] Connection closed by peer [10.77.0.11]:46729
+[ftd_0:50e6018c-59ad-4fdb-99e0-a27b327c6ce8/0 - step 0] got exception waiting for work [/pytorch/third_party/gloo/gloo/transport/tcp/pair.cc:547] Connection closed by peer [10.77.0.11]:46729
+Traceback (most recent call last):
+  File "/srv/fpga/ft-diloco/.venv/lib/python3.12/site-packages/torchft/manager.py", line 1322, in wait
+    self._work.wait()
+RuntimeError: [/pytorch/third_party/gloo/gloo/transport/tcp/pair.cc:547] Connection closed by peer [10.77.0.11]:46729
+[ftd_0:50e6018c-59ad-4fdb-99e0-a27b327c6ce8/0 - step 0] got exception waiting for work [/pytorch/third_party/gloo/gloo/transport/tcp/pair.cc:547] Connection closed by peer [10.77.0.11]:46729
+Traceback (most recent call last):
+  File "/srv/fpga/ft-diloco/.venv/lib/python3.12/site-packages/torchft/manager.py", line 1322, in wait
+    self._work.wait()
+RuntimeError: [/pytorch/third_party/gloo/gloo/transport/tcp/pair.cc:547] Connection closed by peer [10.77.0.11]:46729
+[ftd_0:50e6018c-59ad-4fdb-99e0-a27b327c6ce8/0 - step 0] got exception waiting for work [/pytorch/third_party/gloo/gloo/transport/tcp/pair.cc:547] Connection closed by peer [10.77.0.11]:46729
+Traceback (most recent call last):
+  File "/srv/fpga/ft-diloco/.venv/lib/python3.12/site-packages/torchft/manager.py", line 1322, in wait
+    self._work.wait()
+RuntimeError: [/pytorch/third_party/gloo/gloo/transport/tcp/pair.cc:547] Connection closed by peer [10.77.0.11]:46729
+[ftd_0:50e6018c-59ad-4fdb-99e0-a27b327c6ce8/0 - step 0] got exception waiting for work [/pytorch/third_party/gloo/gloo/transport/tcp/pair.cc:547] Connection closed by peer [10.77.0.11]:46729
+Traceback (most recent call last):
+  File "/srv/fpga/ft-diloco/.venv/lib/python3.12/site-packages/torchft/manager.py", line 1322, in wait
+    self._work.wait()
+RuntimeError: [/pytorch/third_party/gloo/gloo/transport/tcp/pair.cc:547] Connection closed by peer [10.77.0.11]:46729
+[ftd_0:50e6018c-59ad-4fdb-99e0-a27b327c6ce8/0 - step 0] got exception waiting for work [/pytorch/third_party/gloo/gloo/transport/tcp/pair.cc:547] Connection closed by peer [10.77.0.11]:46729
+Traceback (most recent call last):
+  File "/srv/fpga/ft-diloco/.venv/lib/python3.12/site-packages/torchft/manager.py", line 1322, in wait
+    self._work.wait()
+RuntimeError: [/pytorch/third_party/gloo/gloo/transport/tcp/pair.cc:547] Connection closed by peer [10.77.0.11]:46729
+[ftd_0:50e6018c-59ad-4fdb-99e0-a27b327c6ce8/0 - step 0] got exception waiting for work [/pytorch/third_party/gloo/gloo/transport/tcp/pair.cc:547] Connection closed by peer [10.77.0.11]:46729
+Traceback (most recent call last):
+  File "/srv/fpga/ft-diloco/.venv/lib/python3.12/site-packages/torchft/manager.py", line 1322, in wait
+    self._work.wait()
+RuntimeError: [/pytorch/third_party/gloo/gloo/transport/tcp/pair.cc:547] Connection closed by peer [10.77.0.11]:46729
+[ftd_0:50e6018c-59ad-4fdb-99e0-a27b327c6ce8/0 - step 0] got exception waiting for work [/pytorch/third_party/gloo/gloo/transport/tcp/pair.cc:547] Connection closed by peer [10.77.0.11]:46729
+Traceback (most recent call last):
+  File "/srv/fpga/ft-diloco/.venv/lib/python3.12/site-packages/torchft/manager.py", line 1322, in wait
+    self._work.wait()
+RuntimeError: [/pytorch/third_party/gloo/gloo/transport/tcp/pair.cc:547] Connection closed by peer [10.77.0.11]:46729
+[ftd_0:50e6018c-59ad-4fdb-99e0-a27b327c6ce8/0 - step 0] got exception waiting for work [/pytorch/third_party/gloo/gloo/transport/tcp/pair.cc:547] Connection closed by peer [10.77.0.11]:46729
+Traceback (most recent call last):
+  File "/srv/fpga/ft-diloco/.venv/lib/python3.12/site-packages/torchft/manager.py", line 1322, in wait
+    self._work.wait()
+RuntimeError: [/pytorch/third_party/gloo/gloo/transport/tcp/pair.cc:547] Connection closed by peer [10.77.0.11]:46729
+[ftd_0:50e6018c-59ad-4fdb-99e0-a27b327c6ce8/0 - step 0] got exception waiting for work [/pytorch/third_party/gloo/gloo/transport/tcp/pair.cc:547] Connection closed by peer [10.77.0.11]:46729
+Traceback (most recent call last):
+  File "/srv/fpga/ft-diloco/.venv/lib/python3.12/site-packages/torchft/manager.py", line 1322, in wait
+    self._work.wait()
+RuntimeError: [/pytorch/third_party/gloo/gloo/transport/tcp/pair.cc:547] Connection closed by peer [10.77.0.11]:46729
+[ftd_0:50e6018c-59ad-4fdb-99e0-a27b327c6ce8/0 - step 0] got exception waiting for work [/pytorch/third_party/gloo/gloo/transport/tcp/pair.cc:547] Connection closed by peer [10.77.0.11]:46729
+Traceback (most recent call last):
+  File "/srv/fpga/ft-diloco/.venv/lib/python3.12/site-packages/torchft/manager.py", line 1322, in wait
+    self._work.wait()
+RuntimeError: [/pytorch/third_party/gloo/gloo/transport/tcp/pair.cc:547] Connection closed by peer [10.77.0.11]:46729
+[ftd_0:50e6018c-59ad-4fdb-99e0-a27b327c6ce8/0 - step 0] got exception waiting for work [/pytorch/third_party/gloo/gloo/transport/tcp/pair.cc:547] Connection closed by peer [10.77.0.11]:46729
+Traceback (most recent call last):
+  File "/srv/fpga/ft-diloco/.venv/lib/python3.12/site-packages/torchft/manager.py", line 1322, in wait
+    self._work.wait()
+RuntimeError: [/pytorch/third_party/gloo/gloo/transport/tcp/pair.cc:547] Connection closed by peer [10.77.0.11]:46729
+[ftd_0:50e6018c-59ad-4fdb-99e0-a27b327c6ce8/0 - step 0] got exception waiting for work [/pytorch/third_party/gloo/gloo/transport/tcp/pair.cc:547] Connection closed by peer [10.77.0.11]:46729
+Traceback (most recent call last):
+  File "/srv/fpga/ft-diloco/.venv/lib/python3.12/site-packages/torchft/manager.py", line 1322, in wait
+    self._work.wait()
+RuntimeError: [/pytorch/third_party/gloo/gloo/transport/tcp/pair.cc:547] Connection closed by peer [10.77.0.11]:46729
+[ftd_0:50e6018c-59ad-4fdb-99e0-a27b327c6ce8/0 - step 0] got exception waiting for work [/pytorch/third_party/gloo/gloo/transport/tcp/pair.cc:547] Connection closed by peer [10.77.0.11]:46729
+Traceback (most recent call last):
+  File "/srv/fpga/ft-diloco/.venv/lib/python3.12/site-packages/torchft/manager.py", line 1322, in wait
+    self._work.wait()
+RuntimeError: [/pytorch/third_party/gloo/gloo/transport/tcp/pair.cc:547] Connection closed by peer [10.77.0.11]:46729
+[ftd_0:50e6018c-59ad-4fdb-99e0-a27b327c6ce8/0 - step 0] got exception waiting for work [/pytorch/third_party/gloo/gloo/transport/tcp/pair.cc:547] Connection closed by peer [10.77.0.11]:46729
+Traceback (most recent call last):
+  File "/srv/fpga/ft-diloco/.venv/lib/python3.12/site-packages/torchft/manager.py", line 1322, in wait
+    self._work.wait()
+RuntimeError: [/pytorch/third_party/gloo/gloo/transport/tcp/pair.cc:547] Connection closed by peer [10.77.0.11]:46729
+[ftd_0:50e6018c-59ad-4fdb-99e0-a27b327c6ce8/0 - step 0] got exception waiting for work [/pytorch/third_party/gloo/gloo/transport/tcp/pair.cc:547] Connection closed by peer [10.77.0.11]:46729
+Traceback (most recent call last):
+  File "/srv/fpga/ft-diloco/.venv/lib/python3.12/site-packages/torchft/manager.py", line 1322, in wait
+    self._work.wait()
+RuntimeError: [/pytorch/third_party/gloo/gloo/transport/tcp/pair.cc:547] Connection closed by peer [10.77.0.11]:46729
+2026-06-11T22:18:10.327 [INFO] [torchft::manager] - [Replica ftd_0] should_commit request from 0 should_commit=false
+2026-06-11T22:18:10.327 [INFO] [torchft::manager] - [Replica ftd_0] should_commit completed should_commit=false
+2026-06-11T22:18:11.027 [INFO] [torchft::manager] - [Replica ftd_0] Start quorum for group_rank 0
+2026-06-11T22:18:11.027 [INFO] [torchft::manager] - [Replica ftd_0] All workers joined - starting quorum
+2026-06-11T22:18:11.049 [INFO] [torchft::manager] - [Replica ftd_0] got lighthouse quorum LighthouseQuorumResponse { quorum: Some(Quorum { quorum_id: 201, participants: [QuorumMember { replica_id: "ftd_0:50e6018c-59ad-4fdb-99e0-a27b327c6ce8", address: "http://10.77.0.10:37179", store_address: "10.77.0.10:29600", step: 0, world_size: 1, shrink_only: false, commit_failures: 1, data: "" }, QuorumMember { replica_id: "ftd_1:95093c0b-749e-40a4-9259-8b6165b4e86e", address: "http://10.77.0.11:34383", store_address: "10.77.0.11:29601", step: 0, world_size: 1, shrink_only: false, commit_failures: 1, data: "" }], created: Some(Timestamp { seconds: 1781216291, nanos: 39010656 }) }) }
+2026-06-11T22:18:11.049 [INFO] [torchft::manager] - [Replica ftd_0] Finished quorum for group_rank 0
+[W611 22:33:11.606101609 socket.cpp:469] [c10d] waitForInput: poll for socket SocketImpl(fd=70, addr=[3000:94:6574:0:b0ff:ffff:ffff:ffff]:61219, remote=[f371:23ef:6574::]:37889) returned 0, likely a timeout
+[W611 22:33:11.606157200 socket.cpp:494] [c10d] waitForInput: socket SocketImpl(fd=70, addr=[3000:94:6574:0:b0ff:ffff:ffff:ffff]:61219, remote=[f371:23ef:6574::]:37889) timed out after 900000ms
+[ftd_0:50e6018c-59ad-4fdb-99e0-a27b327c6ce8/0 - step 0] got exception in pg configure: wait timeout after 900000ms, keys: /torchft/201/0/0/1
+Traceback (most recent call last):
+  File "/srv/fpga/ft-diloco/.venv/lib/python3.12/site-packages/torchft/manager.py", line 715, in _async_quorum
+    self._pg.configure(
+  File "/srv/fpga/ft-diloco/.venv/lib/python3.12/site-packages/torchft/process_group.py", line 471, in configure
+    self._pg = self._create_pg(store, rank, world_size)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/srv/fpga/ft-diloco/.venv/lib/python3.12/site-packages/torchft/process_group.py", line 652, in _create_pg
+    backend_class = BaseProcessGroupGloo(store, rank, world_size, self._timeout)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+torch.distributed.DistStoreError: wait timeout after 900000ms, keys: /torchft/201/0/0/1
+2026-06-11T22:33:11.196 [INFO] [torchft::manager] - [Replica ftd_0] should_commit request from 0 should_commit=false
+2026-06-11T22:33:11.196 [INFO] [torchft::manager] - [Replica ftd_0] should_commit completed should_commit=false
+2026-06-11T22:33:11.876 [INFO] [torchft::manager] - [Replica ftd_0] Start quorum for group_rank 0
+2026-06-11T22:33:11.876 [INFO] [torchft::manager] - [Replica ftd_0] All workers joined - starting quorum
+2026-06-11T22:33:11.898 [INFO] [torchft::manager] - [Replica ftd_0] got lighthouse quorum LighthouseQuorumResponse { quorum: Some(Quorum { quorum_id: 202, participants: [QuorumMember { replica_id: "ftd_0:50e6018c-59ad-4fdb-99e0-a27b327c6ce8", address: "http://10.77.0.10:37179", store_address: "10.77.0.10:29600", step: 0, world_size: 1, shrink_only: false, commit_failures: 2, data: "" }], created: Some(Timestamp { seconds: 1781217191, nanos: 887727844 }) }) }
+2026-06-11T22:33:11.898 [INFO] [torchft::manager] - [Replica ftd_0] Finished quorum for group_rank 0
+2026-06-11T22:33:11.939 [INFO] [torchft::manager] - [Replica ftd_0] should_commit request from 0 should_commit=true
+2026-06-11T22:33:11.939 [INFO] [torchft::manager] - [Replica ftd_0] should_commit completed should_commit=true
+2026-06-11T22:33:12.949 [INFO] [torchft::manager] - [Replica ftd_0] Start quorum for group_rank 0
+2026-06-11T22:33:12.949 [INFO] [torchft::manager] - [Replica ftd_0] All workers joined - starting quorum
+2026-06-11T22:33:12.971 [INFO] [torchft::manager] - [Replica ftd_0] got lighthouse quorum LighthouseQuorumResponse { quorum: Some(Quorum { quorum_id: 202, participants: [QuorumMember { replica_id: "ftd_0:50e6018c-59ad-4fdb-99e0-a27b327c6ce8", address: "http://10.77.0.10:37179", store_address: "10.77.0.10:29600", step: 1, world_size: 1, shrink_only: false, commit_failures: 0, data: "" }], created: Some(Timestamp { seconds: 1781217192, nanos: 960351559 }) }) }
+2026-06-11T22:33:12.971 [INFO] [torchft::manager] - [Replica ftd_0] Finished quorum for group_rank 0
+2026-06-11T22:33:13.011 [INFO] [torchft::manager] - [Replica ftd_0] should_commit request from 0 should_commit=true
+2026-06-11T22:33:13.011 [INFO] [torchft::manager] - [Replica ftd_0] should_commit completed should_commit=true
+2026-06-11T22:33:13.985 [INFO] [torchft::manager] - [Replica ftd_0] Start quorum for group_rank 0
+2026-06-11T22:33:13.985 [INFO] [torchft::manager] - [Replica ftd_0] All workers joined - starting quorum
+2026-06-11T22:33:14.007 [INFO] [torchft::manager] - [Replica ftd_0] got lighthouse quorum LighthouseQuorumResponse { quorum: Some(Quorum { quorum_id: 202, participants: [QuorumMember { replica_id: "ftd_0:50e6018c-59ad-4fdb-99e0-a27b327c6ce8", address: "http://10.77.0.10:37179", store_address: "10.77.0.10:29600", step: 2, world_size: 1, shrink_only: false, commit_failures: 0, data: "" }], created: Some(Timestamp { seconds: 1781217193, nanos: 996454710 }) }) }
+2026-06-11T22:33:14.007 [INFO] [torchft::manager] - [Replica ftd_0] Finished quorum for group_rank 0
+2026-06-11T22:33:14.047 [INFO] [torchft::manager] - [Replica ftd_0] should_commit request from 0 should_commit=true
+2026-06-11T22:33:14.047 [INFO] [torchft::manager] - [Replica ftd_0] should_commit completed should_commit=true
+2026-06-11T22:33:15.021 [INFO] [torchft::manager] - [Replica ftd_0] Start quorum for group_rank 0
+2026-06-11T22:33:15.021 [INFO] [torchft::manager] - [Replica ftd_0] All workers joined - starting quorum
+2026-06-11T22:33:15.043 [INFO] [torchft::manager] - [Replica ftd_0] got lighthouse quorum LighthouseQuorumResponse { quorum: Some(Quorum { quorum_id: 202, participants: [QuorumMember { replica_id: "ftd_0:50e6018c-59ad-4fdb-99e0-a27b327c6ce8", address: "http://10.77.0.10:37179", store_address: "10.77.0.10:29600", step: 3, world_size: 1, shrink_only: false, commit_failures: 0, data: "" }], created: Some(Timestamp { seconds: 1781217195, nanos: 32520668 }) }) }
+2026-06-11T22:33:15.043 [INFO] [torchft::manager] - [Replica ftd_0] Finished quorum for group_rank 0
+2026-06-11T22:33:15.084 [INFO] [torchft::manager] - [Replica ftd_0] should_commit request from 0 should_commit=true
+2026-06-11T22:33:15.084 [INFO] [torchft::manager] - [Replica ftd_0] should_commit completed should_commit=true
