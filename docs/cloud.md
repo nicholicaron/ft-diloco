@@ -90,9 +90,21 @@ estimated).
 | date | what | $ |
 |---|---|---|
 | 2026-06-12 | smoke test (incl. all false-start instances + the passing Virginia 4090 VM) | 1.86 |
+| 2026-06-12/13 | headline: base124m, worker4 + Virginia/Iceland 4090 VMs over WAN | 1.26 |
+| | **total cloud spend** | **3.12** |
 
 **Smoke test result (PASSED):** worker4 (home, RTX 3060 GPU) + a Virginia RTX 4090 VM
 trained as one DiLoCo cluster over the real internet (tailscale mesh, ~52 ms RTT).
 First sync at step 100 committed with **2 participants**, and the model param digests
 were **bit-identical across the internet** (`a573c3de001da30a` on both). The 204 MB
 fp32 pseudo-gradient allreduce traversed the WAN cleanly. $1.86 of the $5 smoke budget.
+
+**Headline result:** base124m (GPT-2-small) DiLoCo across worker4 (home 3060) + Virginia
+RTX 4090, over tailscale. Both nodes converged **~11 → ~2.2 eval loss** over 26 M tokens
+on the real internet (plot `plots/m4_cloud.png`). Surfaced two coordination findings
+(see findings-171.md): (1) with `min_replica_size=1` + unsynchronized or
+heterogeneous-speed nodes, DiLoCo silently degrades to independent solo runs (sync points
+never align); (2) the `min_replica_size>=2` barrier that forces true averaging OOM-killed
+the 3060 host before the first barrier sync — needs investigation. The fully-automated
+VM onstart bootstrap (key-fix → tailscale → deps → data → launch) works end-to-end. Total
+cloud spend across smoke + headline: **$3.12** of the $50 tranche.

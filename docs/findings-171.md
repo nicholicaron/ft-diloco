@@ -120,3 +120,28 @@ Confirms torchft DiLoCo works across NAT'd, geographically-distributed commodity
 with no code changes beyond the hostname/store-bind fixes already documented above —
 exactly #171's cross-datacenter target. (Operational gotchas in docs/cloud.md.)
 [evidence-171]
+
+## 2026-06-12/13 — M4 cloud headline + sync-alignment finding [evidence-171]
+
+base124m DiLoCo, worker4 (home RTX 3060) + Vast RTX 4090 VMs (Virginia/Iceland) over
+tailscale. Both nodes converged ~11 -> ~2.2 eval loss over the real internet (plot
+plots/m4_cloud.png). Two findings directly relevant to #171's semi-sync coordination:
+
+1. **Sync-point alignment matters more than connectivity.** With min_replica_size=1 and
+   nodes started ~20 min apart (or with heterogeneous step speeds: 4090 ~0.5s/step vs
+   3060 ~2s/step), each worker reaches its H=100 boundary at a different WALL time, finds
+   no peer waiting, and commits SOLO. Result: the "cluster" silently degrades to N
+   independent solo-DiLoCo runs that each converge but to DIFFERENT optima (cross-region
+   param digests did NOT match, vs the smoke test's bit-identical digests when sync points
+   happened to align). True collaborative averaging requires either aligned starts +
+   homogeneous speed, or a barrier (min_replica_size>=2).
+
+2. **The barrier has a cost we hit:** min_replica_size>=2 makes fast nodes block waiting
+   for slow ones at every sync — correct behavior, but the blocking worker accumulated
+   memory and OOM-killed the 3060 host (~30GB anon RSS) before the first barrier sync.
+   Needs investigation (likely a quorum-wait buffer or our orchestration); for now the
+   reliable cloud config is min_replica_size=1 with the alignment caveat documented.
+
+This is exactly the tension #171 raises: naive H-step semi-sync across heterogeneous,
+unsynchronized commodity nodes needs explicit coordination, not just reachability.
+[evidence-171]

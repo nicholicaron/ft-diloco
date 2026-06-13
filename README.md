@@ -7,7 +7,7 @@ Train a small LM across cheap, unreliable machines that sync only every H steps
 [torchft](https://github.com/meta-pytorch/torchft)) — and show that killing,
 disconnecting, or adding machines mid-run does not break convergence.
 
-> Status: M0–M3 complete. WAN realism + cloud hybrid (M4) next. Full polish at M5.
+> Status: M0–M4 complete (incl. real cross-region cloud). Polish + blog write-up next.
 
 ![kill-a-node demo](plots/demo.gif)
 
@@ -73,6 +73,16 @@ separate `quorum_timeout` (default 60 s) must exceed the first-sync skew of
 heterogeneous workers.
 
 ![wan](plots/m4_wan.png)
+
+**Real cross-region cloud (M4):** smoke test — home RTX 3060 + a rented Virginia RTX 4090
+trained one DiLoCo cluster over the open internet (tailscale mesh, ~52 ms RTT) with a
+**2-participant committed sync and bit-identical model digests across the WAN**. Headline —
+base124m converged ~11 → ~2.2 eval loss across US-home + US-East cloud. Total cloud spend
+**$3.12**. Found (and documented for [#171](docs/findings-171.md)) that semi-synchronous
+DiLoCo across *unsynchronized, heterogeneous* nodes needs explicit sync-point coordination,
+not just connectivity — the exact tension the upstream RFC raises.
+
+![cloud](plots/m4_cloud.png)
 
 **DiLoCo trades sync frequency for quality smoothly (M1):** 2 workers, 51M params,
 TinyStories, equal total tokens vs a 3-seed single-GPU baseline (eval loss 1.6773 ± 0.0011):
