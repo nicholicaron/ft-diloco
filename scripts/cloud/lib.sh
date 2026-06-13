@@ -31,5 +31,5 @@ vm_run() {  # vm_run <id> <remote cmd> ; ssh via direct IP, retries
   local id="$1"; shift
   read -r host port < <(vm_ssh "$id")
   [ -z "$port" ] && { echo "no ssh port for $id" >&2; return 1; }
-  ssh -o StrictHostKeyChecking=accept-new -o ConnectTimeout=15 -i "$KEY" -p "$port" "root@$host" "$@" 2>&1 | grep -vE "Welcome to|Have fun|Warning: Permanently"
+  ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o ConnectTimeout=15 -i "$KEY" -p "$port" "root@$host" "$@" 2>&1 | grep -vE "Welcome to|Have fun|Warning: Permanently"
 }

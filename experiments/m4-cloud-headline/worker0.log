@@ -1,0 +1,427 @@
+2026-06-13T03:22:18.647 [INFO] [torchft::manager] - Creating LighthouseClient: establishing connection to http://100.86.208.63:29510
+2026-06-13T03:22:18.668 [INFO] [torchft::manager] - [Replica ftd_0] Manager listening on http://100.84.255.98:35355
+2026-06-13T03:22:18.668 [INFO] [torchft::manager] - Creating ManagerClient: establishing connection to http://100.84.255.98:35355
+2026-06-13T03:24:56.502 [INFO] [torchft::manager] - [Replica ftd_0] Start quorum for group_rank 0
+2026-06-13T03:24:56.502 [INFO] [torchft::manager] - [Replica ftd_0] All workers joined - starting quorum
+2026-06-13T03:24:56.504 [INFO] [torchft::manager] - [Replica ftd_0] got lighthouse quorum LighthouseQuorumResponse { quorum: Some(Quorum { quorum_id: 212, participants: [QuorumMember { replica_id: "ftd_0:9d1470a5-1650-4183-9de8-4a4131769ca0", address: "http://100.84.255.98:35355", store_address: "100.84.255.98:29600", step: 0, world_size: 1, shrink_only: false, commit_failures: 0, data: "" }], created: Some(Timestamp { seconds: 1781321096, nanos: 503729023 }) }) }
+2026-06-13T03:24:56.504 [INFO] [torchft::manager] - [Replica ftd_0] Finished quorum for group_rank 0
+2026-06-13T03:24:56.989 [INFO] [torchft::manager] - [Replica ftd_0] should_commit request from 0 should_commit=true
+2026-06-13T03:24:56.990 [INFO] [torchft::manager] - [Replica ftd_0] should_commit completed should_commit=true
+2026-06-13T03:27:30.618 [INFO] [torchft::manager] - [Replica ftd_0] Start quorum for group_rank 0
+2026-06-13T03:27:30.618 [INFO] [torchft::manager] - [Replica ftd_0] All workers joined - starting quorum
+2026-06-13T03:27:30.620 [INFO] [torchft::manager] - [Replica ftd_0] got lighthouse quorum LighthouseQuorumResponse { quorum: Some(Quorum { quorum_id: 212, participants: [QuorumMember { replica_id: "ftd_0:9d1470a5-1650-4183-9de8-4a4131769ca0", address: "http://100.84.255.98:35355", store_address: "100.84.255.98:29600", step: 1, world_size: 1, shrink_only: false, commit_failures: 0, data: "" }], created: Some(Timestamp { seconds: 1781321250, nanos: 619824233 }) }) }
+2026-06-13T03:27:30.620 [INFO] [torchft::manager] - [Replica ftd_0] Finished quorum for group_rank 0
+2026-06-13T03:27:30.738 [INFO] [torchft::manager] - [Replica ftd_0] should_commit request from 0 should_commit=true
+2026-06-13T03:27:30.739 [INFO] [torchft::manager] - [Replica ftd_0] should_commit completed should_commit=true
+2026-06-13T03:30:09.324 [INFO] [torchft::manager] - [Replica ftd_0] Start quorum for group_rank 0
+2026-06-13T03:30:09.324 [INFO] [torchft::manager] - [Replica ftd_0] All workers joined - starting quorum
+2026-06-13T03:30:09.326 [INFO] [torchft::manager] - [Replica ftd_0] got lighthouse quorum LighthouseQuorumResponse { quorum: Some(Quorum { quorum_id: 212, participants: [QuorumMember { replica_id: "ftd_0:9d1470a5-1650-4183-9de8-4a4131769ca0", address: "http://100.84.255.98:35355", store_address: "100.84.255.98:29600", step: 2, world_size: 1, shrink_only: false, commit_failures: 0, data: "" }], created: Some(Timestamp { seconds: 1781321409, nanos: 325692224 }) }) }
+2026-06-13T03:30:09.326 [INFO] [torchft::manager] - [Replica ftd_0] Finished quorum for group_rank 0
+2026-06-13T03:30:09.445 [INFO] [torchft::manager] - [Replica ftd_0] should_commit request from 0 should_commit=true
+2026-06-13T03:30:09.445 [INFO] [torchft::manager] - [Replica ftd_0] should_commit completed should_commit=true
+2026-06-13T03:32:42.980 [INFO] [torchft::manager] - [Replica ftd_0] Start quorum for group_rank 0
+2026-06-13T03:32:42.980 [INFO] [torchft::manager] - [Replica ftd_0] All workers joined - starting quorum
+2026-06-13T03:32:42.982 [INFO] [torchft::manager] - [Replica ftd_0] got lighthouse quorum LighthouseQuorumResponse { quorum: Some(Quorum { quorum_id: 212, participants: [QuorumMember { replica_id: "ftd_0:9d1470a5-1650-4183-9de8-4a4131769ca0", address: "http://100.84.255.98:35355", store_address: "100.84.255.98:29600", step: 3, world_size: 1, shrink_only: false, commit_failures: 0, data: "" }], created: Some(Timestamp { seconds: 1781321562, nanos: 982151007 }) }) }
+2026-06-13T03:32:42.982 [INFO] [torchft::manager] - [Replica ftd_0] Finished quorum for group_rank 0
+2026-06-13T03:32:43.101 [INFO] [torchft::manager] - [Replica ftd_0] should_commit request from 0 should_commit=true
+2026-06-13T03:32:43.101 [INFO] [torchft::manager] - [Replica ftd_0] should_commit completed should_commit=true
+2026-06-13T03:35:21.609 [INFO] [torchft::manager] - [Replica ftd_0] Start quorum for group_rank 0
+2026-06-13T03:35:21.609 [INFO] [torchft::manager] - [Replica ftd_0] All workers joined - starting quorum
+2026-06-13T03:35:21.611 [INFO] [torchft::manager] - [Replica ftd_0] got lighthouse quorum LighthouseQuorumResponse { quorum: Some(Quorum { quorum_id: 212, participants: [QuorumMember { replica_id: "ftd_0:9d1470a5-1650-4183-9de8-4a4131769ca0", address: "http://100.84.255.98:35355", store_address: "100.84.255.98:29600", step: 4, world_size: 1, shrink_only: false, commit_failures: 0, data: "" }], created: Some(Timestamp { seconds: 1781321721, nanos: 611053586 }) }) }
+2026-06-13T03:35:21.611 [INFO] [torchft::manager] - [Replica ftd_0] Finished quorum for group_rank 0
+2026-06-13T03:35:21.729 [INFO] [torchft::manager] - [Replica ftd_0] should_commit request from 0 should_commit=true
+2026-06-13T03:35:21.729 [INFO] [torchft::manager] - [Replica ftd_0] should_commit completed should_commit=true
+2026-06-13T03:37:57.143 [INFO] [torchft::manager] - [Replica ftd_0] Start quorum for group_rank 0
+2026-06-13T03:37:57.143 [INFO] [torchft::manager] - [Replica ftd_0] All workers joined - starting quorum
+2026-06-13T03:37:57.145 [INFO] [torchft::manager] - [Replica ftd_0] got lighthouse quorum LighthouseQuorumResponse { quorum: Some(Quorum { quorum_id: 212, participants: [QuorumMember { replica_id: "ftd_0:9d1470a5-1650-4183-9de8-4a4131769ca0", address: "http://100.84.255.98:35355", store_address: "100.84.255.98:29600", step: 5, world_size: 1, shrink_only: false, commit_failures: 0, data: "" }], created: Some(Timestamp { seconds: 1781321877, nanos: 146055504 }) }) }
+2026-06-13T03:37:57.145 [INFO] [torchft::manager] - [Replica ftd_0] Finished quorum for group_rank 0
+2026-06-13T03:37:57.264 [INFO] [torchft::manager] - [Replica ftd_0] should_commit request from 0 should_commit=true
+2026-06-13T03:37:57.264 [INFO] [torchft::manager] - [Replica ftd_0] should_commit completed should_commit=true
+2026-06-13T03:40:35.822 [INFO] [torchft::manager] - [Replica ftd_0] Start quorum for group_rank 0
+2026-06-13T03:40:35.822 [INFO] [torchft::manager] - [Replica ftd_0] All workers joined - starting quorum
+2026-06-13T03:40:35.824 [INFO] [torchft::manager] - [Replica ftd_0] got lighthouse quorum LighthouseQuorumResponse { quorum: Some(Quorum { quorum_id: 212, participants: [QuorumMember { replica_id: "ftd_0:9d1470a5-1650-4183-9de8-4a4131769ca0", address: "http://100.84.255.98:35355", store_address: "100.84.255.98:29600", step: 6, world_size: 1, shrink_only: false, commit_failures: 0, data: "" }], created: Some(Timestamp { seconds: 1781322035, nanos: 824478996 }) }) }
+2026-06-13T03:40:35.824 [INFO] [torchft::manager] - [Replica ftd_0] Finished quorum for group_rank 0
+2026-06-13T03:40:35.943 [INFO] [torchft::manager] - [Replica ftd_0] should_commit request from 0 should_commit=true
+2026-06-13T03:40:35.943 [INFO] [torchft::manager] - [Replica ftd_0] should_commit completed should_commit=true
+2026-06-13T03:43:09.524 [INFO] [torchft::manager] - [Replica ftd_0] Start quorum for group_rank 0
+2026-06-13T03:43:09.524 [INFO] [torchft::manager] - [Replica ftd_0] All workers joined - starting quorum
+2026-06-13T03:43:09.526 [INFO] [torchft::manager] - [Replica ftd_0] got lighthouse quorum LighthouseQuorumResponse { quorum: Some(Quorum { quorum_id: 213, participants: [QuorumMember { replica_id: "ftd_0:9d1470a5-1650-4183-9de8-4a4131769ca0", address: "http://100.84.255.98:35355", store_address: "100.84.255.98:29600", step: 7, world_size: 1, shrink_only: false, commit_failures: 0, data: "" }, QuorumMember { replica_id: "ftd_2:63eb8f10-c875-415c-ad88-6e4d80e00650", address: "http://100.109.167.95:37601", store_address: "100.109.167.95:29600", step: 0, world_size: 1, shrink_only: false, commit_failures: 0, data: "" }], created: Some(Timestamp { seconds: 1781322189, nanos: 527218840 }) }) }
+2026-06-13T03:43:09.526 [INFO] [torchft::manager] - [Replica ftd_0] Finished quorum for group_rank 0
+::ffff:100.109.167.95 - - [13/Jun/2026 03:43:12] "GET /checkpoint/7/full HTTP/1.1" 200 -
+[ftd_0:9d1470a5-1650-4183-9de8-4a4131769ca0/0 - step 7] got exception waiting for work [/pytorch/third_party/gloo/gloo/transport/tcp/unbound_buffer.cc:78] Timed out waiting 600000ms for recv operation to complete
+Traceback (most recent call last):
+  File "/srv/fpga/ft-diloco/.venv/lib/python3.12/site-packages/torchft/manager.py", line 1322, in wait
+    self._work.wait()
+RuntimeError: [/pytorch/third_party/gloo/gloo/transport/tcp/unbound_buffer.cc:78] Timed out waiting 600000ms for recv operation to complete
+[ftd_0:9d1470a5-1650-4183-9de8-4a4131769ca0/0 - step 7] got exception waiting for work Application timeout caused pair closure
+Traceback (most recent call last):
+  File "/srv/fpga/ft-diloco/.venv/lib/python3.12/site-packages/torchft/manager.py", line 1322, in wait
+    self._work.wait()
+RuntimeError: Application timeout caused pair closure
+[ftd_0:9d1470a5-1650-4183-9de8-4a4131769ca0/0 - step 7] got exception waiting for work Application timeout caused pair closure
+Traceback (most recent call last):
+  File "/srv/fpga/ft-diloco/.venv/lib/python3.12/site-packages/torchft/manager.py", line 1322, in wait
+    self._work.wait()
+RuntimeError: Application timeout caused pair closure
+[ftd_0:9d1470a5-1650-4183-9de8-4a4131769ca0/0 - step 7] got exception waiting for work Application timeout caused pair closure
+Traceback (most recent call last):
+  File "/srv/fpga/ft-diloco/.venv/lib/python3.12/site-packages/torchft/manager.py", line 1322, in wait
+    self._work.wait()
+RuntimeError: Application timeout caused pair closure
+[ftd_0:9d1470a5-1650-4183-9de8-4a4131769ca0/0 - step 7] got exception waiting for work Application timeout caused pair closure
+Traceback (most recent call last):
+  File "/srv/fpga/ft-diloco/.venv/lib/python3.12/site-packages/torchft/manager.py", line 1322, in wait
+    self._work.wait()
+RuntimeError: Application timeout caused pair closure
+[ftd_0:9d1470a5-1650-4183-9de8-4a4131769ca0/0 - step 7] got exception waiting for work Application timeout caused pair closure
+Traceback (most recent call last):
+  File "/srv/fpga/ft-diloco/.venv/lib/python3.12/site-packages/torchft/manager.py", line 1322, in wait
+    self._work.wait()
+RuntimeError: Application timeout caused pair closure
+[ftd_0:9d1470a5-1650-4183-9de8-4a4131769ca0/0 - step 7] got exception waiting for work Application timeout caused pair closure
+Traceback (most recent call last):
+  File "/srv/fpga/ft-diloco/.venv/lib/python3.12/site-packages/torchft/manager.py", line 1322, in wait
+    self._work.wait()
+RuntimeError: Application timeout caused pair closure
+[ftd_0:9d1470a5-1650-4183-9de8-4a4131769ca0/0 - step 7] got exception waiting for work Application timeout caused pair closure
+Traceback (most recent call last):
+  File "/srv/fpga/ft-diloco/.venv/lib/python3.12/site-packages/torchft/manager.py", line 1322, in wait
+    self._work.wait()
+RuntimeError: Application timeout caused pair closure
+[ftd_0:9d1470a5-1650-4183-9de8-4a4131769ca0/0 - step 7] got exception waiting for work Application timeout caused pair closure
+Traceback (most recent call last):
+  File "/srv/fpga/ft-diloco/.venv/lib/python3.12/site-packages/torchft/manager.py", line 1322, in wait
+    self._work.wait()
+RuntimeError: Application timeout caused pair closure
+[ftd_0:9d1470a5-1650-4183-9de8-4a4131769ca0/0 - step 7] got exception waiting for work Application timeout caused pair closure
+Traceback (most recent call last):
+  File "/srv/fpga/ft-diloco/.venv/lib/python3.12/site-packages/torchft/manager.py", line 1322, in wait
+    self._work.wait()
+RuntimeError: Application timeout caused pair closure
+[ftd_0:9d1470a5-1650-4183-9de8-4a4131769ca0/0 - step 7] got exception waiting for work Application timeout caused pair closure
+Traceback (most recent call last):
+  File "/srv/fpga/ft-diloco/.venv/lib/python3.12/site-packages/torchft/manager.py", line 1322, in wait
+    self._work.wait()
+RuntimeError: Application timeout caused pair closure
+[ftd_0:9d1470a5-1650-4183-9de8-4a4131769ca0/0 - step 7] got exception waiting for work Application timeout caused pair closure
+Traceback (most recent call last):
+  File "/srv/fpga/ft-diloco/.venv/lib/python3.12/site-packages/torchft/manager.py", line 1322, in wait
+    self._work.wait()
+RuntimeError: Application timeout caused pair closure
+[ftd_0:9d1470a5-1650-4183-9de8-4a4131769ca0/0 - step 7] got exception waiting for work Application timeout caused pair closure
+Traceback (most recent call last):
+  File "/srv/fpga/ft-diloco/.venv/lib/python3.12/site-packages/torchft/manager.py", line 1322, in wait
+    self._work.wait()
+RuntimeError: Application timeout caused pair closure
+[ftd_0:9d1470a5-1650-4183-9de8-4a4131769ca0/0 - step 7] got exception waiting for work Application timeout caused pair closure
+Traceback (most recent call last):
+  File "/srv/fpga/ft-diloco/.venv/lib/python3.12/site-packages/torchft/manager.py", line 1322, in wait
+    self._work.wait()
+RuntimeError: Application timeout caused pair closure
+[ftd_0:9d1470a5-1650-4183-9de8-4a4131769ca0/0 - step 7] got exception waiting for work Application timeout caused pair closure
+Traceback (most recent call last):
+  File "/srv/fpga/ft-diloco/.venv/lib/python3.12/site-packages/torchft/manager.py", line 1322, in wait
+    self._work.wait()
+RuntimeError: Application timeout caused pair closure
+[ftd_0:9d1470a5-1650-4183-9de8-4a4131769ca0/0 - step 7] got exception waiting for work Application timeout caused pair closure
+Traceback (most recent call last):
+  File "/srv/fpga/ft-diloco/.venv/lib/python3.12/site-packages/torchft/manager.py", line 1322, in wait
+    self._work.wait()
+RuntimeError: Application timeout caused pair closure
+[ftd_0:9d1470a5-1650-4183-9de8-4a4131769ca0/0 - step 7] got exception waiting for work Application timeout caused pair closure
+Traceback (most recent call last):
+  File "/srv/fpga/ft-diloco/.venv/lib/python3.12/site-packages/torchft/manager.py", line 1322, in wait
+    self._work.wait()
+RuntimeError: Application timeout caused pair closure
+[ftd_0:9d1470a5-1650-4183-9de8-4a4131769ca0/0 - step 7] got exception waiting for work Application timeout caused pair closure
+Traceback (most recent call last):
+  File "/srv/fpga/ft-diloco/.venv/lib/python3.12/site-packages/torchft/manager.py", line 1322, in wait
+    self._work.wait()
+RuntimeError: Application timeout caused pair closure
+[ftd_0:9d1470a5-1650-4183-9de8-4a4131769ca0/0 - step 7] got exception waiting for work Application timeout caused pair closure
+Traceback (most recent call last):
+  File "/srv/fpga/ft-diloco/.venv/lib/python3.12/site-packages/torchft/manager.py", line 1322, in wait
+    self._work.wait()
+RuntimeError: Application timeout caused pair closure
+[ftd_0:9d1470a5-1650-4183-9de8-4a4131769ca0/0 - step 7] got exception waiting for work Application timeout caused pair closure
+Traceback (most recent call last):
+  File "/srv/fpga/ft-diloco/.venv/lib/python3.12/site-packages/torchft/manager.py", line 1322, in wait
+    self._work.wait()
+RuntimeError: Application timeout caused pair closure
+[ftd_0:9d1470a5-1650-4183-9de8-4a4131769ca0/0 - step 7] got exception waiting for work Application timeout caused pair closure
+Traceback (most recent call last):
+  File "/srv/fpga/ft-diloco/.venv/lib/python3.12/site-packages/torchft/manager.py", line 1322, in wait
+    self._work.wait()
+RuntimeError: Application timeout caused pair closure
+[ftd_0:9d1470a5-1650-4183-9de8-4a4131769ca0/0 - step 7] got exception waiting for work Application timeout caused pair closure
+Traceback (most recent call last):
+  File "/srv/fpga/ft-diloco/.venv/lib/python3.12/site-packages/torchft/manager.py", line 1322, in wait
+    self._work.wait()
+RuntimeError: Application timeout caused pair closure
+[ftd_0:9d1470a5-1650-4183-9de8-4a4131769ca0/0 - step 7] got exception waiting for work Application timeout caused pair closure
+Traceback (most recent call last):
+  File "/srv/fpga/ft-diloco/.venv/lib/python3.12/site-packages/torchft/manager.py", line 1322, in wait
+    self._work.wait()
+RuntimeError: Application timeout caused pair closure
+[ftd_0:9d1470a5-1650-4183-9de8-4a4131769ca0/0 - step 7] got exception waiting for work Application timeout caused pair closure
+Traceback (most recent call last):
+  File "/srv/fpga/ft-diloco/.venv/lib/python3.12/site-packages/torchft/manager.py", line 1322, in wait
+    self._work.wait()
+RuntimeError: Application timeout caused pair closure
+[ftd_0:9d1470a5-1650-4183-9de8-4a4131769ca0/0 - step 7] got exception waiting for work Application timeout caused pair closure
+Traceback (most recent call last):
+  File "/srv/fpga/ft-diloco/.venv/lib/python3.12/site-packages/torchft/manager.py", line 1322, in wait
+    self._work.wait()
+RuntimeError: Application timeout caused pair closure
+[ftd_0:9d1470a5-1650-4183-9de8-4a4131769ca0/0 - step 7] got exception waiting for work Application timeout caused pair closure
+Traceback (most recent call last):
+  File "/srv/fpga/ft-diloco/.venv/lib/python3.12/site-packages/torchft/manager.py", line 1322, in wait
+    self._work.wait()
+RuntimeError: Application timeout caused pair closure
+[ftd_0:9d1470a5-1650-4183-9de8-4a4131769ca0/0 - step 7] got exception waiting for work Application timeout caused pair closure
+Traceback (most recent call last):
+  File "/srv/fpga/ft-diloco/.venv/lib/python3.12/site-packages/torchft/manager.py", line 1322, in wait
+    self._work.wait()
+RuntimeError: Application timeout caused pair closure
+[ftd_0:9d1470a5-1650-4183-9de8-4a4131769ca0/0 - step 7] got exception waiting for work Application timeout caused pair closure
+Traceback (most recent call last):
+  File "/srv/fpga/ft-diloco/.venv/lib/python3.12/site-packages/torchft/manager.py", line 1322, in wait
+    self._work.wait()
+RuntimeError: Application timeout caused pair closure
+[ftd_0:9d1470a5-1650-4183-9de8-4a4131769ca0/0 - step 7] got exception waiting for work Application timeout caused pair closure
+Traceback (most recent call last):
+  File "/srv/fpga/ft-diloco/.venv/lib/python3.12/site-packages/torchft/manager.py", line 1322, in wait
+    self._work.wait()
+RuntimeError: Application timeout caused pair closure
+[ftd_0:9d1470a5-1650-4183-9de8-4a4131769ca0/0 - step 7] got exception waiting for work Application timeout caused pair closure
+Traceback (most recent call last):
+  File "/srv/fpga/ft-diloco/.venv/lib/python3.12/site-packages/torchft/manager.py", line 1322, in wait
+    self._work.wait()
+RuntimeError: Application timeout caused pair closure
+[ftd_0:9d1470a5-1650-4183-9de8-4a4131769ca0/0 - step 7] got exception waiting for work Application timeout caused pair closure
+Traceback (most recent call last):
+  File "/srv/fpga/ft-diloco/.venv/lib/python3.12/site-packages/torchft/manager.py", line 1322, in wait
+    self._work.wait()
+RuntimeError: Application timeout caused pair closure
+[ftd_0:9d1470a5-1650-4183-9de8-4a4131769ca0/0 - step 7] got exception waiting for work Application timeout caused pair closure
+Traceback (most recent call last):
+  File "/srv/fpga/ft-diloco/.venv/lib/python3.12/site-packages/torchft/manager.py", line 1322, in wait
+    self._work.wait()
+RuntimeError: Application timeout caused pair closure
+[ftd_0:9d1470a5-1650-4183-9de8-4a4131769ca0/0 - step 7] got exception waiting for work Application timeout caused pair closure
+Traceback (most recent call last):
+  File "/srv/fpga/ft-diloco/.venv/lib/python3.12/site-packages/torchft/manager.py", line 1322, in wait
+    self._work.wait()
+RuntimeError: Application timeout caused pair closure
+[ftd_0:9d1470a5-1650-4183-9de8-4a4131769ca0/0 - step 7] got exception waiting for work Application timeout caused pair closure
+Traceback (most recent call last):
+  File "/srv/fpga/ft-diloco/.venv/lib/python3.12/site-packages/torchft/manager.py", line 1322, in wait
+    self._work.wait()
+RuntimeError: Application timeout caused pair closure
+[ftd_0:9d1470a5-1650-4183-9de8-4a4131769ca0/0 - step 7] got exception waiting for work Application timeout caused pair closure
+Traceback (most recent call last):
+  File "/srv/fpga/ft-diloco/.venv/lib/python3.12/site-packages/torchft/manager.py", line 1322, in wait
+    self._work.wait()
+RuntimeError: Application timeout caused pair closure
+[ftd_0:9d1470a5-1650-4183-9de8-4a4131769ca0/0 - step 7] got exception waiting for work Application timeout caused pair closure
+Traceback (most recent call last):
+  File "/srv/fpga/ft-diloco/.venv/lib/python3.12/site-packages/torchft/manager.py", line 1322, in wait
+    self._work.wait()
+RuntimeError: Application timeout caused pair closure
+[ftd_0:9d1470a5-1650-4183-9de8-4a4131769ca0/0 - step 7] got exception waiting for work Application timeout caused pair closure
+Traceback (most recent call last):
+  File "/srv/fpga/ft-diloco/.venv/lib/python3.12/site-packages/torchft/manager.py", line 1322, in wait
+    self._work.wait()
+RuntimeError: Application timeout caused pair closure
+[ftd_0:9d1470a5-1650-4183-9de8-4a4131769ca0/0 - step 7] got exception waiting for work Application timeout caused pair closure
+Traceback (most recent call last):
+  File "/srv/fpga/ft-diloco/.venv/lib/python3.12/site-packages/torchft/manager.py", line 1322, in wait
+    self._work.wait()
+RuntimeError: Application timeout caused pair closure
+[ftd_0:9d1470a5-1650-4183-9de8-4a4131769ca0/0 - step 7] got exception waiting for work Application timeout caused pair closure
+Traceback (most recent call last):
+  File "/srv/fpga/ft-diloco/.venv/lib/python3.12/site-packages/torchft/manager.py", line 1322, in wait
+    self._work.wait()
+RuntimeError: Application timeout caused pair closure
+[ftd_0:9d1470a5-1650-4183-9de8-4a4131769ca0/0 - step 7] got exception waiting for work Application timeout caused pair closure
+Traceback (most recent call last):
+  File "/srv/fpga/ft-diloco/.venv/lib/python3.12/site-packages/torchft/manager.py", line 1322, in wait
+    self._work.wait()
+RuntimeError: Application timeout caused pair closure
+[ftd_0:9d1470a5-1650-4183-9de8-4a4131769ca0/0 - step 7] got exception waiting for work Application timeout caused pair closure
+Traceback (most recent call last):
+  File "/srv/fpga/ft-diloco/.venv/lib/python3.12/site-packages/torchft/manager.py", line 1322, in wait
+    self._work.wait()
+RuntimeError: Application timeout caused pair closure
+[ftd_0:9d1470a5-1650-4183-9de8-4a4131769ca0/0 - step 7] got exception waiting for work Application timeout caused pair closure
+Traceback (most recent call last):
+  File "/srv/fpga/ft-diloco/.venv/lib/python3.12/site-packages/torchft/manager.py", line 1322, in wait
+    self._work.wait()
+RuntimeError: Application timeout caused pair closure
+[ftd_0:9d1470a5-1650-4183-9de8-4a4131769ca0/0 - step 7] got exception waiting for work Application timeout caused pair closure
+Traceback (most recent call last):
+  File "/srv/fpga/ft-diloco/.venv/lib/python3.12/site-packages/torchft/manager.py", line 1322, in wait
+    self._work.wait()
+RuntimeError: Application timeout caused pair closure
+[ftd_0:9d1470a5-1650-4183-9de8-4a4131769ca0/0 - step 7] got exception waiting for work Application timeout caused pair closure
+Traceback (most recent call last):
+  File "/srv/fpga/ft-diloco/.venv/lib/python3.12/site-packages/torchft/manager.py", line 1322, in wait
+    self._work.wait()
+RuntimeError: Application timeout caused pair closure
+[ftd_0:9d1470a5-1650-4183-9de8-4a4131769ca0/0 - step 7] got exception waiting for work Application timeout caused pair closure
+Traceback (most recent call last):
+  File "/srv/fpga/ft-diloco/.venv/lib/python3.12/site-packages/torchft/manager.py", line 1322, in wait
+    self._work.wait()
+RuntimeError: Application timeout caused pair closure
+[ftd_0:9d1470a5-1650-4183-9de8-4a4131769ca0/0 - step 7] got exception waiting for work Application timeout caused pair closure
+Traceback (most recent call last):
+  File "/srv/fpga/ft-diloco/.venv/lib/python3.12/site-packages/torchft/manager.py", line 1322, in wait
+    self._work.wait()
+RuntimeError: Application timeout caused pair closure
+[ftd_0:9d1470a5-1650-4183-9de8-4a4131769ca0/0 - step 7] got exception waiting for work Application timeout caused pair closure
+Traceback (most recent call last):
+  File "/srv/fpga/ft-diloco/.venv/lib/python3.12/site-packages/torchft/manager.py", line 1322, in wait
+    self._work.wait()
+RuntimeError: Application timeout caused pair closure
+[ftd_0:9d1470a5-1650-4183-9de8-4a4131769ca0/0 - step 7] got exception waiting for work Application timeout caused pair closure
+Traceback (most recent call last):
+  File "/srv/fpga/ft-diloco/.venv/lib/python3.12/site-packages/torchft/manager.py", line 1322, in wait
+    self._work.wait()
+RuntimeError: Application timeout caused pair closure
+[ftd_0:9d1470a5-1650-4183-9de8-4a4131769ca0/0 - step 7] got exception waiting for work Application timeout caused pair closure
+Traceback (most recent call last):
+  File "/srv/fpga/ft-diloco/.venv/lib/python3.12/site-packages/torchft/manager.py", line 1322, in wait
+    self._work.wait()
+RuntimeError: Application timeout caused pair closure
+[ftd_0:9d1470a5-1650-4183-9de8-4a4131769ca0/0 - step 7] got exception waiting for work Application timeout caused pair closure
+Traceback (most recent call last):
+  File "/srv/fpga/ft-diloco/.venv/lib/python3.12/site-packages/torchft/manager.py", line 1322, in wait
+    self._work.wait()
+RuntimeError: Application timeout caused pair closure
+[ftd_0:9d1470a5-1650-4183-9de8-4a4131769ca0/0 - step 7] got exception waiting for work Application timeout caused pair closure
+Traceback (most recent call last):
+  File "/srv/fpga/ft-diloco/.venv/lib/python3.12/site-packages/torchft/manager.py", line 1322, in wait
+    self._work.wait()
+RuntimeError: Application timeout caused pair closure
+[ftd_0:9d1470a5-1650-4183-9de8-4a4131769ca0/0 - step 7] got exception waiting for work Application timeout caused pair closure
+Traceback (most recent call last):
+  File "/srv/fpga/ft-diloco/.venv/lib/python3.12/site-packages/torchft/manager.py", line 1322, in wait
+    self._work.wait()
+RuntimeError: Application timeout caused pair closure
+[ftd_0:9d1470a5-1650-4183-9de8-4a4131769ca0/0 - step 7] got exception waiting for work Application timeout caused pair closure
+Traceback (most recent call last):
+  File "/srv/fpga/ft-diloco/.venv/lib/python3.12/site-packages/torchft/manager.py", line 1322, in wait
+    self._work.wait()
+RuntimeError: Application timeout caused pair closure
+[ftd_0:9d1470a5-1650-4183-9de8-4a4131769ca0/0 - step 7] got exception waiting for work Application timeout caused pair closure
+Traceback (most recent call last):
+  File "/srv/fpga/ft-diloco/.venv/lib/python3.12/site-packages/torchft/manager.py", line 1322, in wait
+    self._work.wait()
+RuntimeError: Application timeout caused pair closure
+[ftd_0:9d1470a5-1650-4183-9de8-4a4131769ca0/0 - step 7] got exception waiting for work Application timeout caused pair closure
+Traceback (most recent call last):
+  File "/srv/fpga/ft-diloco/.venv/lib/python3.12/site-packages/torchft/manager.py", line 1322, in wait
+    self._work.wait()
+RuntimeError: Application timeout caused pair closure
+[ftd_0:9d1470a5-1650-4183-9de8-4a4131769ca0/0 - step 7] got exception waiting for work Application timeout caused pair closure
+Traceback (most recent call last):
+  File "/srv/fpga/ft-diloco/.venv/lib/python3.12/site-packages/torchft/manager.py", line 1322, in wait
+    self._work.wait()
+RuntimeError: Application timeout caused pair closure
+[ftd_0:9d1470a5-1650-4183-9de8-4a4131769ca0/0 - step 7] got exception waiting for work Application timeout caused pair closure
+Traceback (most recent call last):
+  File "/srv/fpga/ft-diloco/.venv/lib/python3.12/site-packages/torchft/manager.py", line 1322, in wait
+    self._work.wait()
+RuntimeError: Application timeout caused pair closure
+[ftd_0:9d1470a5-1650-4183-9de8-4a4131769ca0/0 - step 7] got exception waiting for work Application timeout caused pair closure
+Traceback (most recent call last):
+  File "/srv/fpga/ft-diloco/.venv/lib/python3.12/site-packages/torchft/manager.py", line 1322, in wait
+    self._work.wait()
+RuntimeError: Application timeout caused pair closure
+[ftd_0:9d1470a5-1650-4183-9de8-4a4131769ca0/0 - step 7] got exception waiting for work Application timeout caused pair closure
+Traceback (most recent call last):
+  File "/srv/fpga/ft-diloco/.venv/lib/python3.12/site-packages/torchft/manager.py", line 1322, in wait
+    self._work.wait()
+RuntimeError: Application timeout caused pair closure
+[ftd_0:9d1470a5-1650-4183-9de8-4a4131769ca0/0 - step 7] got exception waiting for work Application timeout caused pair closure
+Traceback (most recent call last):
+  File "/srv/fpga/ft-diloco/.venv/lib/python3.12/site-packages/torchft/manager.py", line 1322, in wait
+    self._work.wait()
+RuntimeError: Application timeout caused pair closure
+[ftd_0:9d1470a5-1650-4183-9de8-4a4131769ca0/0 - step 7] got exception waiting for work Application timeout caused pair closure
+Traceback (most recent call last):
+  File "/srv/fpga/ft-diloco/.venv/lib/python3.12/site-packages/torchft/manager.py", line 1322, in wait
+    self._work.wait()
+RuntimeError: Application timeout caused pair closure
+[ftd_0:9d1470a5-1650-4183-9de8-4a4131769ca0/0 - step 7] got exception waiting for work Application timeout caused pair closure
+Traceback (most recent call last):
+  File "/srv/fpga/ft-diloco/.venv/lib/python3.12/site-packages/torchft/manager.py", line 1322, in wait
+    self._work.wait()
+RuntimeError: Application timeout caused pair closure
+[ftd_0:9d1470a5-1650-4183-9de8-4a4131769ca0/0 - step 7] got exception waiting for work Application timeout caused pair closure
+Traceback (most recent call last):
+  File "/srv/fpga/ft-diloco/.venv/lib/python3.12/site-packages/torchft/manager.py", line 1322, in wait
+    self._work.wait()
+RuntimeError: Application timeout caused pair closure
+[ftd_0:9d1470a5-1650-4183-9de8-4a4131769ca0/0 - step 7] got exception waiting for work Application timeout caused pair closure
+Traceback (most recent call last):
+  File "/srv/fpga/ft-diloco/.venv/lib/python3.12/site-packages/torchft/manager.py", line 1322, in wait
+    self._work.wait()
+RuntimeError: Application timeout caused pair closure
+[ftd_0:9d1470a5-1650-4183-9de8-4a4131769ca0/0 - step 7] got exception waiting for work Application timeout caused pair closure
+Traceback (most recent call last):
+  File "/srv/fpga/ft-diloco/.venv/lib/python3.12/site-packages/torchft/manager.py", line 1322, in wait
+    self._work.wait()
+RuntimeError: Application timeout caused pair closure
+[ftd_0:9d1470a5-1650-4183-9de8-4a4131769ca0/0 - step 7] got exception waiting for work Application timeout caused pair closure
+Traceback (most recent call last):
+  File "/srv/fpga/ft-diloco/.venv/lib/python3.12/site-packages/torchft/manager.py", line 1322, in wait
+    self._work.wait()
+RuntimeError: Application timeout caused pair closure
+[ftd_0:9d1470a5-1650-4183-9de8-4a4131769ca0/0 - step 7] got exception waiting for work Application timeout caused pair closure
+Traceback (most recent call last):
+  File "/srv/fpga/ft-diloco/.venv/lib/python3.12/site-packages/torchft/manager.py", line 1322, in wait
+    self._work.wait()
+RuntimeError: Application timeout caused pair closure
+[ftd_0:9d1470a5-1650-4183-9de8-4a4131769ca0/0 - step 7] got exception waiting for work Application timeout caused pair closure
+Traceback (most recent call last):
+  File "/srv/fpga/ft-diloco/.venv/lib/python3.12/site-packages/torchft/manager.py", line 1322, in wait
+    self._work.wait()
+RuntimeError: Application timeout caused pair closure
+[ftd_0:9d1470a5-1650-4183-9de8-4a4131769ca0/0 - step 7] got exception waiting for work Application timeout caused pair closure
+Traceback (most recent call last):
+  File "/srv/fpga/ft-diloco/.venv/lib/python3.12/site-packages/torchft/manager.py", line 1322, in wait
+    self._work.wait()
+RuntimeError: Application timeout caused pair closure
+[ftd_0:9d1470a5-1650-4183-9de8-4a4131769ca0/0 - step 7] got exception waiting for work Application timeout caused pair closure
+Traceback (most recent call last):
+  File "/srv/fpga/ft-diloco/.venv/lib/python3.12/site-packages/torchft/manager.py", line 1322, in wait
+    self._work.wait()
+RuntimeError: Application timeout caused pair closure
+[ftd_0:9d1470a5-1650-4183-9de8-4a4131769ca0/0 - step 7] got exception waiting for work Application timeout caused pair closure
+Traceback (most recent call last):
+  File "/srv/fpga/ft-diloco/.venv/lib/python3.12/site-packages/torchft/manager.py", line 1322, in wait
+    self._work.wait()
+RuntimeError: Application timeout caused pair closure
+[ftd_0:9d1470a5-1650-4183-9de8-4a4131769ca0/0 - step 7] got exception waiting for work Application timeout caused pair closure
+Traceback (most recent call last):
+  File "/srv/fpga/ft-diloco/.venv/lib/python3.12/site-packages/torchft/manager.py", line 1322, in wait
+    self._work.wait()
+RuntimeError: Application timeout caused pair closure
+[ftd_0:9d1470a5-1650-4183-9de8-4a4131769ca0/0 - step 7] got exception waiting for work Application timeout caused pair closure
+Traceback (most recent call last):
+  File "/srv/fpga/ft-diloco/.venv/lib/python3.12/site-packages/torchft/manager.py", line 1322, in wait
+    self._work.wait()
+RuntimeError: Application timeout caused pair closure
+[ftd_0:9d1470a5-1650-4183-9de8-4a4131769ca0/0 - step 7] got exception waiting for work Application timeout caused pair closure
+Traceback (most recent call last):
+  File "/srv/fpga/ft-diloco/.venv/lib/python3.12/site-packages/torchft/manager.py", line 1322, in wait
+    self._work.wait()
+RuntimeError: Application timeout caused pair closure
+[ftd_0:9d1470a5-1650-4183-9de8-4a4131769ca0/0 - step 7] got exception waiting for work Application timeout caused pair closure
+Traceback (most recent call last):
+  File "/srv/fpga/ft-diloco/.venv/lib/python3.12/site-packages/torchft/manager.py", line 1322, in wait
+    self._work.wait()
+RuntimeError: Application timeout caused pair closure
+2026-06-13T03:53:12.561 [INFO] [torchft::manager] - [Replica ftd_0] should_commit request from 0 should_commit=false
+2026-06-13T03:53:12.561 [INFO] [torchft::manager] - [Replica ftd_0] should_commit completed should_commit=false
