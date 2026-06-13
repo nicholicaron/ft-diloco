@@ -18,6 +18,10 @@ COOLDOWN="${COOLDOWN:-90}"
 DELAY="${DELAY:-15}"
 LH_PORT="${LH_PORT:-29510}"
 export LH="http://10.77.0.1:${LH_PORT}"
+# CPU pinning (PIN=1): give each replica a dedicated thread so step times stay uniform
+# and replicas reach each sync barrier together (raises quorum participation at N≈cores).
+export PIN="${PIN:-0}"
+export PIN_CORES="${PIN_CORES:-$(nproc)}"
 
 echo "=== storm $RUN: N=$N, ${DURATION}s, schedule $SCHEDULE, config $CONFIG $(date -Is)"
 bash scripts/kill_run.sh "$RUN" || true
@@ -42,7 +46,8 @@ for R in $(seq 0 $((N - 1))); do bash scripts/launch_storm_replica.sh "$RUN" "$R
 
 # one supervisor watching all N
 tmux new -d -s ftdsup \
-  "cd /srv/fpga/ft-diloco && DELAY=$DELAY bash scripts/supervisor_n.sh $RUN $N $DELAY $CONFIG \
+  "cd /srv/fpga/ft-diloco && PIN=$PIN PIN_CORES=$PIN_CORES DELAY=$DELAY \
+   bash scripts/supervisor_n.sh $RUN $N $DELAY $CONFIG \
    >> experiments/$RUN/supervisor.log 2>&1"
 
 echo "=== warmup ${WARMUP}s before first fault $(date -Is)"

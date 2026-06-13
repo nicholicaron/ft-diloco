@@ -1,0 +1,27 @@
+# Canonical N=32 storm config: micro/CPU, min_replica_size=2 barrier, commit-coupled
+# checkpoints, run CPU-pinned (PIN=1) so step times stay uniform and ~all 32 replicas
+# reach each sync barrier together. Dense eval (every 2 syncs, 5 batches) so the global
+# loss trajectory is plottable through the storm — shows faults don't reverse progress.
+# Same as storm_micro.yaml except eval cadence; use a matching reference for efficiency.
+run_id: storm
+mode: diloco
+model: micro
+data_dir: data/tinystories
+seed: 1337
+batch_size: 16
+grad_accum: 1
+max_steps: 1000000
+sync_every: 20
+outer_lr: 0.7
+outer_momentum: 0.9
+min_replica_size: 2
+quorum_timeout_s: 120.0
+pg_timeout_s: 60.0
+ckpt_every_syncs: 5
+lr: 4.0e-4
+warmup_steps: 100
+log_every: 20
+eval_every: 40          # every 2 syncs -> dense-enough global-loss trajectory
+eval_batches: 5         # cheap eval so it barely perturbs throughput
+device: cpu
+dtype: float32

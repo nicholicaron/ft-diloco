@@ -53,6 +53,20 @@ def run_diloco(
             return f"http://{host}:{port}/checkpoint/"
 
     replica_id = int(os.environ.get("REPLICA_GROUP_ID", "0"))
+
+    def pin_cpu() -> None:
+        # taskset's affinity is reset by torch/MKL on import, so pin in-process and
+        # re-assert (torch can reset again when it spawns collective threads). With
+        # N replicas pinned 1:1 to cores, step times stay uniform → replicas reach
+        # each sync barrier together → high quorum participation (see docs/findings-171).
+        core = os.environ.get("FTD_PIN_CORE")
+        if core is not None and hasattr(os, "sched_setaffinity"):
+            try:
+                os.sched_setaffinity(0, {int(core)})
+            except (ValueError, OSError):
+                pass
+
+    pin_cpu()
     raw_model = getattr(model, "_orig_mod", model)
     outer_opt = torch.optim.SGD(
         raw_model.parameters(), lr=cfg.outer_lr, momentum=cfg.outer_momentum, nesterov=True
@@ -126,6 +140,7 @@ def run_diloco(
     last_outer = {"step": manager.current_step(), "mono": time.monotonic()}
 
     def post_step(step: int) -> None:
+        pin_cpu()  # re-assert affinity (torch resets it during gloo collectives)
         if step % H != 0:
             return
         now = time.monotonic()
