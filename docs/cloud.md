@@ -27,24 +27,49 @@ a full session costs ~$10–15.
 
 ## Operations (agent-driven, for reference)
 
+**MUST use a real VM, not a docker container.** Docker instances only get tailscale
+*userspace-netstack*, which this stack cannot use: the TCPStore can't bind the TS
+address, gloo can't dial it, recovery URLs are unreachable. Launch a true KVM VM.
+
 ```bash
-# find cheap interruptible 4090s, distinct geographies
-vastai search offers 'gpu_name=RTX_4090 num_gpus=1 inet_down>200 reliability>0.95' \
-    --interruptible -o 'dph+' | head -15
-# rent (PRICE = bid; instance pauses if outbid — that's a fault event for us)
-vastai create instance <OFFER_ID> --image pytorch/pytorch:2.9.0-cuda12.8-cudnn9-runtime \
-    --disk 30 --bid <PRICE> \
-    --env TS_AUTHKEY=$(cat ~/.config/ftd_ts_authkey) \
-    --env REPLICA_ID=2 --env N_REPLICAS=3 \
-    --env LIGHTHOUSE=http://100.86.208.63:29510 \
+# 1. find VM-CAPABLE 4090s (verified hosts; on-demand is more reliable than
+#    interruptible for the launch itself — preemption is injected later, see below)
+vastai search offers 'gpu_name=RTX_4090 num_gpus=1 inet_down>200 reliability>0.98 \
+    disk_space>40 vms_enabled=true' -o 'dph+'
+# 2. rent via the OFFICIAL VM template (image=docker.io/vastai/kvm). Account SSH key
+#    must be registered first: vastai create ssh-key "$(cat ~/.ssh/id_rsa.pub)"
+vastai create instance <OFFER_ID> \
+    --template_hash b7942f6bbc4374893ff66eb78145bbac \
+    --disk 40 \
+    --env "-e TS_AUTHKEY=$(cat ~/.config/ftd_ts_authkey) -e REPLICA_ID=1 \
+           -e N_REPLICAS=2 -e LIGHTHOUSE=http://100.86.208.63:29510 \
+           -e PUBKEY='$(cat ~/.ssh/id_rsa.pub)'" \
     --onstart scripts/cloud/bootstrap_vast.sh
-vastai show instances
-vastai destroy instance <ID>          # ALWAYS destroy (not stop) when done — stopped
-                                      # instances keep billing storage
+# 3. SSH IN VIA THE DIRECT PUBLIC IP + MAPPED PORT, not the ssh proxy (proxy refuses
+#    on VMs). Get them from the ports map:
+vastai show instance <ID> --raw | python3 -c \
+  'import json,sys; d=json.load(sys.stdin); \
+   print(d["public_ipaddr"], d["ports"]["22/tcp"][0]["HostPort"])'
+ssh -i ~/.ssh/id_rsa -p <MAPPED_PORT> root@<PUBLIC_IP>
+vastai destroy instance <ID>   # ALWAYS destroy, never stop (stopped pods bill storage)
 ```
 
-worker4 joins the same run from home with `FTD_ADVERTISE_HOST=$(tailscale ip -4)`,
-`GLOO_SOCKET_IFNAME=tailscale0`, lighthouse via worker1's TS IP.
+worker4 joins from home: `bash scripts/run_m4_cloud_w4.sh m4-cloud <N> <STEPS>`
+(advertises its tailscale0 IP; lighthouse via worker1's TS IP).
+
+### Hard-won gotchas (all hit during the $5 smoke, all now handled in bootstrap)
+- **2FA**: account needs 2FA enabled before the API can create instances (401 otherwise).
+- **`vms_enabled=true` is not enough** — a plain `--image ubuntu:22.04` on a VM-capable
+  host still gives a *docker container* (no /dev/net/tun, PID 1 ≠ systemd). Only the
+  `vastai/kvm:*` images / VM template produce a real VM.
+- **authorized_keys perms bug**: VM images ship `/root/.ssh/authorized_keys` with modes
+  sshd refuses (`bad ownership or modes`) → locked out. bootstrap chmods it [0/6]; if
+  you're already locked out, fix via the **web console** at cloud.vast.ai/instances.
+- **SSH proxy (`sshN.vast.ai:port`) is refused on VMs** — use direct public IP + the
+  `ports["22/tcp"]` HostPort instead.
+- **VM CLI quirks**: `--env` takes ONE quoted `-e K=V -e K2=V2` string, not repeated
+  flags; create sometimes returns `success:false` but the instance still materializes
+  (check `show instances-v1`); raw JSON output is wrapped in a Rich box (regex the array).
 
 ## Run plan ($50 tranche)
 
@@ -64,3 +89,10 @@ estimated).
 
 | date | what | $ |
 |---|---|---|
+| 2026-06-12 | smoke test (incl. all false-start instances + the passing Virginia 4090 VM) | 1.86 |
+
+**Smoke test result (PASSED):** worker4 (home, RTX 3060 GPU) + a Virginia RTX 4090 VM
+trained as one DiLoCo cluster over the real internet (tailscale mesh, ~52 ms RTT).
+First sync at step 100 committed with **2 participants**, and the model param digests
+were **bit-identical across the internet** (`a573c3de001da30a` on both). The 204 MB
+fp32 pseudo-gradient allreduce traversed the WAN cleanly. $1.86 of the $5 smoke budget.

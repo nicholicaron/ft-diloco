@@ -109,3 +109,14 @@ netem sweep (veth, 20ms RTT, fp32 204.8MB payload, 51M model, 2 replica groups):
   skew exceeds it (observed: GPU at +41s, CPU at +103s, quorum formed 2s after the GPU
   worker timed out). Heterogeneous/cross-DC deployments need quorum_timeout >= worst-case
   H x step-time spread. [candidate-doc]
+
+## 2026-06-12 — M4 cloud smoke: cross-internet sync works [evidence-171]
+
+worker4 (home, RTX 3060) + Vast.ai RTX 4090 VM (Virginia) as 2 DiLoCo replica groups
+over a tailscale mesh (~52 ms RTT, real internet). First outer sync committed with
+num_participants=2; param digests bit-identical across the WAN (a573c3de001da30a both
+sides). The 204 MB fp32 pseudo-gradient allreduce over gloo-on-tailscale succeeded.
+Confirms torchft DiLoCo works across NAT'd, geographically-distributed commodity nodes
+with no code changes beyond the hostname/store-bind fixes already documented above —
+exactly #171's cross-datacenter target. (Operational gotchas in docs/cloud.md.)
+[evidence-171]
